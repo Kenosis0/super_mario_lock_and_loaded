@@ -1,0 +1,48 @@
+[gd_scene format=4 uid="uid://ym6mb3us0jsl"]
+
+[ext_resource type="Script" uid="uid://c60xtul8n4jof" path="res://scripts/main.gd" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://dqo6vvy0pcixm" path="res://scenes/characters/player/player.tscn" id="2_0wfyh"]
+[ext_resource type="Texture2D" uid="uid://bbk45ikwjqkpy" path="res://assets/Background.png" id="2_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://bvsf06450cksq" path="res://assets/Block.png" id="4_jyhfs"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
+texture = ExtResource("4_jyhfs")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+
+[sub_resource type="TileSet" id="TileSet_tefeu"]
+tile_size = Vector2i(256, 256)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_tbgi4")
+
+[node name="Main" type="Node2D" unique_id=1472878119]
+script = ExtResource("1_sugp2")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=856129012]
+repeat_size = Vector2(1980, 1080)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=724888184]
+texture = ExtResource("2_jyhfs")
+centered = false
+
+[node name="Player2" parent="." unique_id=1182183939 instance=ExtResource("2_0wfyh")]
+
+[node name="Mouse" type="Polygon2D" parent="." unique_id=1610031937]
+visible = false
+color = Color(1, 0, 1, 1)
+polygon = PackedVector2Array(-16.000008, 0, 0, -16, 16.000008, 0, 0, 16)
+uv = PackedVector2Array(-1.6126709, -14.748688, -1.1338806, -14.269901, 0.5418625, -10.679024)
+polygons = [PackedInt32Array(0, 1, 3), PackedInt32Array(1, 2, 3)]
+
+[node name="Target" type="Polygon2D" parent="." unique_id=1216786760]
+position = Vector2(-11.590286, -165.51143)
+color = Color(5.390644e-06, 0.6795128, 0.90102863, 1)
+offset = Vector2(17.30664, 0.25282288)
+polygon = PackedVector2Array(-16.000004, 8, 0, -8.000002, 8, 0, 16, -8, 120, 8.000002, 16, 23.999998, 7.9999924, 15.999996, 0, 24)
+uv = PackedVector2Array(-1.6126709, -14.748688, -1.1338806, -14.269901, 0.5418625, -10.679024)
+polygons = [PackedInt32Array(0, 1, 2), PackedInt32Array(2, 3, 5), PackedInt32Array(3, 4, 5), PackedInt32Array(0, 2, 6), PackedInt32Array(2, 5, 6), PackedInt32Array(0, 6, 7)]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1292774216]
+tile_map_data = PackedByteArray("AAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAJAAQAAAAAAAAAAAAKAAQAAAAAAAAAAAALAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAANAAQAAAAAAAAAAAAOAAQAAAAAAAAAAAAPAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAD1/wQAAAAAAAAAAAD2/wQAAAAAAAAAAAD3/wQAAAAAAAAAAAD4/wQAAAAAAAAAAAD5/wQAAAAAAAAAAAD6/wQAAAAAAAAAAAD7/wQAAAAAAAAAAAD8/wQAAAAAAAAAAAD9/wQAAAAAAAAAAAD+/wQAAAAAAAAAAAD//wQAAAAAAAAAAAARAAQAAAAAAAAAAAASAAQAAAAAAAAAAAATAAQAAAAAAAAAAAAUAAQAAAAAAAAAAAAVAAQAAAAAAAAAAAAWAAQAAAAAAAAAAAAXAAQAAAAAAAAAAAAYAAQAAAAAAAAAAAAZAAQAAAAAAAAAAAAaAAQAAAAAAAAAAAAbAAQAAAAAAAAAAAAcAAQAAAAAAAAAAAAdAAQAAAAAAAAAAAAeAAQAAAAAAAAAAAAfAAQAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_tefeu")
