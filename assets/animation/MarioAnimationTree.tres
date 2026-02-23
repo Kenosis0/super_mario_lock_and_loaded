@@ -11,69 +11,43 @@ stretch_time_scale = true
 start_offset = 0.0
 loop_mode = 1
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4lai6"]
+animation = &"MarioShooter/jump"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kqeb4"]
 animation = &"MarioShooter/idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3e5jp"]
-animation = &"fall"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qbuqm"]
-animation = &"jump"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xuu6v"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h722u"]
-xfade_time = 0.1
-switch_mode = 2
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_puofv"]
-switch_mode = 2
-advance_mode = 2
-advance_condition = &"grounded"
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_cj6vo"]
-states/End/position = Vector2(667, 144.5)
-states/Start/position = Vector2(202, 144.5)
-states/fall/node = SubResource("AnimationNodeAnimation_3e5jp")
-states/fall/position = Vector2(498.5, 144.5)
-states/jump/node = SubResource("AnimationNodeAnimation_qbuqm")
-states/jump/position = Vector2(360.5, 144.5)
-transitions = ["Start", "jump", SubResource("AnimationNodeStateMachineTransition_xuu6v"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_h722u"), "fall", "End", SubResource("AnimationNodeStateMachineTransition_puofv")]
-graph_offset = Vector2(-16, 36)
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_kdbng"]
 filters = [".", "IK_BONES/IKLegL/FootLookAt:position", "IK_BONES/IKLegL/FootLookAt:rotation", "IK_BONES/IKLegL:position", "IK_BONES/IKLegL:rotation", "IK_BONES/IKLegR/FootLookAt:position", "IK_BONES/IKLegR/FootLookAt:rotation", "IK_BONES/IKLegR:position", "IK_BONES/IKLegR:rotation", "IK_BONES/TechnicalRoot/IKArmL/HandLLootAt:position", "IK_BONES/TechnicalRoot/IKArmL/HandLLootAt:rotation", "IK_BONES/TechnicalRoot/IKArmL:position", "IK_BONES/TechnicalRoot/IKArmL:rotation", "IK_BONES/TechnicalRoot/IKArmR/HandRLootAt:position", "IK_BONES/TechnicalRoot/IKArmR/HandRLootAt:rotation", "IK_BONES/TechnicalRoot/IKArmR:position", "IK_BONES/TechnicalRoot/IKArmR:rotation", "Render/SubViewport/IK_BONES/IKLegL/FootLookAt:position", "Render/SubViewport/IK_BONES/IKLegL/FootLookAt:rotation", "Render/SubViewport/IK_BONES/IKLegL:position", "Render/SubViewport/IK_BONES/IKLegL:rotation", "Render/SubViewport/IK_BONES/IKLegR/FootLookAt:position", "Render/SubViewport/IK_BONES/IKLegR/FootLookAt:rotation", "Render/SubViewport/IK_BONES/IKLegR:position", "Render/SubViewport/IK_BONES/IKLegR:rotation", "Render/SubViewport/IK_BONES/TechnicalRoot/IKArmL/HandLLootAt:position", "Render/SubViewport/IK_BONES/TechnicalRoot/IKArmL/HandLLootAt:rotation", "Render/SubViewport/IK_BONES/TechnicalRoot/IKArmL:position", "Render/SubViewport/IK_BONES/TechnicalRoot/IKArmL:rotation", "Render/SubViewport/IK_BONES/TechnicalRoot/IKArmR/HandRLootAt:position", "Render/SubViewport/IK_BONES/TechnicalRoot/IKArmR/HandRLootAt:rotation", "Render/SubViewport/IK_BONES/TechnicalRoot/IKArmR:position", "Render/SubViewport/IK_BONES/TechnicalRoot/IKArmR:rotation", "Render/SubViewport/Skeleton2D/Hip/Body:position", "Render/SubViewport/Skeleton2D/Hip/Body:rotation", "Render/SubViewport/Skeleton2D/Hip/Body:scale", "Render/SubViewport/Skeleton2D/Hip/UpLegL/ShinL/FootL/FootIK:position", "Render/SubViewport/Skeleton2D/Hip/UpLegL/ShinL/FootL/FootIK:rotation", "Render/SubViewport/Skeleton2D/Hip/UpLegL/ShinL/FootL/FootL2:position", "Render/SubViewport/Skeleton2D/Hip/UpLegL/ShinL/FootL/FootL2:rotation", "Render/SubViewport/Skeleton2D/Hip/UpLegL/ShinL/FootL:position", "Render/SubViewport/Skeleton2D/Hip/UpLegL/ShinL/FootL:rotation", "Render/SubViewport/Skeleton2D/Hip/UpLegL/ShinL:position", "Render/SubViewport/Skeleton2D/Hip/UpLegL/ShinL:rotation", "Render/SubViewport/Skeleton2D/Hip/UpLegL:position", "Render/SubViewport/Skeleton2D/Hip/UpLegL:rotation", "Render/SubViewport/Skeleton2D/Hip/UpLegR/ShinR/FootR/FootIK:position", "Render/SubViewport/Skeleton2D/Hip/UpLegR/ShinR/FootR/FootIK:rotation", "Render/SubViewport/Skeleton2D/Hip/UpLegR/ShinR/FootR/FootR2:position", "Render/SubViewport/Skeleton2D/Hip/UpLegR/ShinR/FootR/FootR2:rotation", "Render/SubViewport/Skeleton2D/Hip/UpLegR/ShinR/FootR:position", "Render/SubViewport/Skeleton2D/Hip/UpLegR/ShinR/FootR:rotation", "Render/SubViewport/Skeleton2D/Hip/UpLegR/ShinR:position", "Render/SubViewport/Skeleton2D/Hip/UpLegR/ShinR:rotation", "Render/SubViewport/Skeleton2D/Hip/UpLegR:position", "Render/SubViewport/Skeleton2D/Hip/UpLegR:rotation", "Render/SubViewport/Skeleton2D/Hip:position", "Render/SubViewport/Skeleton2D/Hip:rotation", "Skeleton2D/Hip/Body:position", "Skeleton2D/Hip/Body:rotation", "Skeleton2D/Hip/Body:scale", "Skeleton2D/Hip/UpLegL/ShinL/FootL/FootIK:position", "Skeleton2D/Hip/UpLegL/ShinL/FootL/FootIK:rotation", "Skeleton2D/Hip/UpLegL/ShinL/FootL/FootL2:position", "Skeleton2D/Hip/UpLegL/ShinL/FootL/FootL2:rotation", "Skeleton2D/Hip/UpLegL/ShinL/FootL:position", "Skeleton2D/Hip/UpLegL/ShinL/FootL:rotation", "Skeleton2D/Hip/UpLegL/ShinL:position", "Skeleton2D/Hip/UpLegL/ShinL:rotation", "Skeleton2D/Hip/UpLegL:position", "Skeleton2D/Hip/UpLegL:rotation", "Skeleton2D/Hip/UpLegR/ShinR/FootR/FootIK:position", "Skeleton2D/Hip/UpLegR/ShinR/FootR/FootIK:rotation", "Skeleton2D/Hip/UpLegR/ShinR/FootR/FootR2:position", "Skeleton2D/Hip/UpLegR/ShinR/FootR/FootR2:rotation", "Skeleton2D/Hip/UpLegR/ShinR/FootR:position", "Skeleton2D/Hip/UpLegR/ShinR/FootR:rotation", "Skeleton2D/Hip/UpLegR/ShinR:position", "Skeleton2D/Hip/UpLegR/ShinR:rotation", "Skeleton2D/Hip/UpLegR:position", "Skeleton2D/Hip/UpLegR:rotation", "Skeleton2D/Hip:position", "Skeleton2D/Hip:rotation", "TechnicalRoot/HeadLookAt:position", "TechnicalRoot/HeadLookAt:rotation", "TechnicalRoot/IKArmL/HandLLootAt:position", "TechnicalRoot/IKArmL/HandLLootAt:rotation", "TechnicalRoot/IKArmL:position", "TechnicalRoot/IKArmL:rotation", "TechnicalRoot/IKArmR/HandRLootAt:position", "TechnicalRoot/IKArmR/HandRLootAt:rotation", "TechnicalRoot/IKArmR:position", "TechnicalRoot/IKArmR:rotation"]
 
-[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_d3p0n"]
-filters = ["", ".", "IK_BONES/IKLegL/FootLookAt:position", "IK_BONES/IKLegL/FootLookAt:rotation", "IK_BONES/IKLegL:position", "IK_BONES/IKLegL:rotation", "IK_BONES/IKLegR/FootLookAt:position", "IK_BONES/IKLegR/FootLookAt:rotation", "IK_BONES/IKLegR:position", "IK_BONES/IKLegR:rotation", "IK_BONES/TechnicalRoot/IKArmL/HandLLootAt:position", "IK_BONES/TechnicalRoot/IKArmL/HandLLootAt:rotation", "IK_BONES/TechnicalRoot/IKArmL:position", "IK_BONES/TechnicalRoot/IKArmL:rotation", "IK_BONES/TechnicalRoot/IKArmR/HandRLootAt:position", "IK_BONES/TechnicalRoot/IKArmR/HandRLootAt:rotation", "IK_BONES/TechnicalRoot/IKArmR:position", "IK_BONES/TechnicalRoot/IKArmR:rotation", "Render/SubViewport/IK_BONES/IKArmL/HandLLootAt:position", "Render/SubViewport/IK_BONES/IKArmL/HandLLootAt:rotation", "Render/SubViewport/IK_BONES/IKArmL:position", "Render/SubViewport/IK_BONES/IKArmL:rotation", "Render/SubViewport/IK_BONES/IKArmR/HandRLootAt:position", "Render/SubViewport/IK_BONES/IKArmR/HandRLootAt:rotation", "Render/SubViewport/IK_BONES/IKArmR:position", "Render/SubViewport/IK_BONES/IKArmR:rotation", "Render/SubViewport/IK_BONES/IKLegL/FootLookAt:position", "Render/SubViewport/IK_BONES/IKLegL/FootLookAt:rotation", "Render/SubViewport/IK_BONES/IKLegL:position", "Render/SubViewport/IK_BONES/IKLegL:rotation", "Render/SubViewport/IK_BONES/IKLegR/FootLookAt:position", "Render/SubViewport/IK_BONES/IKLegR/FootLookAt:rotation", "Render/SubViewport/IK_BONES/IKLegR:position", "Render/SubViewport/IK_BONES/IKLegR:rotation", "Render/SubViewport/Skeleton2D/Hip/Body:position", "Render/SubViewport/Skeleton2D/Hip/Body:rotation", "Render/SubViewport/Skeleton2D/Hip/Body:scale", "Render/SubViewport/Skeleton2D/Hip/UpLegL/ShinL/FootL/FootIK:position", "Render/SubViewport/Skeleton2D/Hip/UpLegL/ShinL/FootL/FootIK:rotation", "Render/SubViewport/Skeleton2D/Hip/UpLegL/ShinL/FootL/FootL2:position", "Render/SubViewport/Skeleton2D/Hip/UpLegL/ShinL/FootL/FootL2:rotation", "Render/SubViewport/Skeleton2D/Hip/UpLegL/ShinL/FootL:position", "Render/SubViewport/Skeleton2D/Hip/UpLegL/ShinL/FootL:rotation", "Render/SubViewport/Skeleton2D/Hip/UpLegL/ShinL:position", "Render/SubViewport/Skeleton2D/Hip/UpLegL/ShinL:rotation", "Render/SubViewport/Skeleton2D/Hip/UpLegL:position", "Render/SubViewport/Skeleton2D/Hip/UpLegL:rotation", "Render/SubViewport/Skeleton2D/Hip/UpLegR/ShinR/FootR/FootIK:position", "Render/SubViewport/Skeleton2D/Hip/UpLegR/ShinR/FootR/FootIK:rotation", "Render/SubViewport/Skeleton2D/Hip/UpLegR/ShinR/FootR/FootR2:position", "Render/SubViewport/Skeleton2D/Hip/UpLegR/ShinR/FootR/FootR2:rotation", "Render/SubViewport/Skeleton2D/Hip/UpLegR/ShinR/FootR:position", "Render/SubViewport/Skeleton2D/Hip/UpLegR/ShinR/FootR:rotation", "Render/SubViewport/Skeleton2D/Hip/UpLegR/ShinR:position", "Render/SubViewport/Skeleton2D/Hip/UpLegR/ShinR:rotation", "Render/SubViewport/Skeleton2D/Hip/UpLegR:position", "Render/SubViewport/Skeleton2D/Hip/UpLegR:rotation", "Render/SubViewport/Skeleton2D/Hip:position", "Render/SubViewport/Skeleton2D/Hip:rotation", "Skeleton2D/Hip/Body:position", "Skeleton2D/Hip/Body:rotation", "Skeleton2D/Hip/Body:scale", "Skeleton2D/Hip/UpLegL/ShinL/FootL/FootIK:position", "Skeleton2D/Hip/UpLegL/ShinL/FootL/FootIK:rotation", "Skeleton2D/Hip/UpLegL/ShinL/FootL/FootL2:position", "Skeleton2D/Hip/UpLegL/ShinL/FootL/FootL2:rotation", "Skeleton2D/Hip/UpLegL/ShinL/FootL:position", "Skeleton2D/Hip/UpLegL/ShinL/FootL:rotation", "Skeleton2D/Hip/UpLegL/ShinL:position", "Skeleton2D/Hip/UpLegL/ShinL:rotation", "Skeleton2D/Hip/UpLegL:position", "Skeleton2D/Hip/UpLegL:rotation", "Skeleton2D/Hip/UpLegR/ShinR/FootR/FootIK:position", "Skeleton2D/Hip/UpLegR/ShinR/FootR/FootIK:rotation", "Skeleton2D/Hip/UpLegR/ShinR/FootR/FootR2:position", "Skeleton2D/Hip/UpLegR/ShinR/FootR/FootR2:rotation", "Skeleton2D/Hip/UpLegR/ShinR/FootR:position", "Skeleton2D/Hip/UpLegR/ShinR/FootR:rotation", "Skeleton2D/Hip/UpLegR/ShinR:position", "Skeleton2D/Hip/UpLegR/ShinR:rotation", "Skeleton2D/Hip/UpLegR:position", "Skeleton2D/Hip/UpLegR:rotation", "Skeleton2D/Hip:position", "Skeleton2D/Hip:rotation", "TechnicalRoot/HeadLookAt:position", "TechnicalRoot/HeadLookAt:rotation", "TechnicalRoot/IKArmL/HandLLootAt:position", "TechnicalRoot/IKArmL/HandLLootAt:rotation", "TechnicalRoot/IKArmL:position", "TechnicalRoot/IKArmL:rotation", "TechnicalRoot/IKArmR/HandRLootAt:position", "TechnicalRoot/IKArmR/HandRLootAt:rotation", "TechnicalRoot/IKArmR:position", "TechnicalRoot/IKArmR:rotation"]
-
-[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_4lai6"]
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_4lai6"]
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_d3p0n"]
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_4lai6"]
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_jqnpj"]
 filters = [".", "IK_BONES/IKLegL/FootLookAt:position", "IK_BONES/IKLegL/FootLookAt:rotation", "IK_BONES/IKLegL:position", "IK_BONES/IKLegL:rotation", "IK_BONES/IKLegR/FootLookAt:position", "IK_BONES/IKLegR/FootLookAt:rotation", "IK_BONES/IKLegR:position", "IK_BONES/IKLegR:rotation", "IK_BONES/TechnicalRoot/IKArmL/HandLLootAt:position", "IK_BONES/TechnicalRoot/IKArmL/HandLLootAt:rotation", "IK_BONES/TechnicalRoot/IKArmL:position", "IK_BONES/TechnicalRoot/IKArmL:rotation", "IK_BONES/TechnicalRoot/IKArmR/HandRLootAt:position", "IK_BONES/TechnicalRoot/IKArmR/HandRLootAt:rotation", "IK_BONES/TechnicalRoot/IKArmR:position", "IK_BONES/TechnicalRoot/IKArmR:rotation", "Render/SubViewport/IK_BONES/IKLegL/FootLookAt:position", "Render/SubViewport/IK_BONES/IKLegL/FootLookAt:rotation", "Render/SubViewport/IK_BONES/IKLegL:position", "Render/SubViewport/IK_BONES/IKLegL:rotation", "Render/SubViewport/IK_BONES/IKLegR/FootLookAt:position", "Render/SubViewport/IK_BONES/IKLegR/FootLookAt:rotation", "Render/SubViewport/IK_BONES/IKLegR:position", "Render/SubViewport/IK_BONES/IKLegR:rotation", "Render/SubViewport/IK_BONES/TechnicalRoot/IKArmL/HandLLootAt:position", "Render/SubViewport/IK_BONES/TechnicalRoot/IKArmL/HandLLootAt:rotation", "Render/SubViewport/IK_BONES/TechnicalRoot/IKArmL:position", "Render/SubViewport/IK_BONES/TechnicalRoot/IKArmL:rotation", "Render/SubViewport/IK_BONES/TechnicalRoot/IKArmR/HandRLootAt:position", "Render/SubViewport/IK_BONES/TechnicalRoot/IKArmR/HandRLootAt:rotation", "Render/SubViewport/IK_BONES/TechnicalRoot/IKArmR:position", "Render/SubViewport/IK_BONES/TechnicalRoot/IKArmR:rotation", "Render/SubViewport/Skeleton2D/Hip/Body:position", "Render/SubViewport/Skeleton2D/Hip/Body:rotation", "Render/SubViewport/Skeleton2D/Hip/Body:scale", "Render/SubViewport/Skeleton2D/Hip/UpLegL/ShinL/FootL/FootIK:position", "Render/SubViewport/Skeleton2D/Hip/UpLegL/ShinL/FootL/FootIK:rotation", "Render/SubViewport/Skeleton2D/Hip/UpLegL/ShinL/FootL/FootL2:position", "Render/SubViewport/Skeleton2D/Hip/UpLegL/ShinL/FootL/FootL2:rotation", "Render/SubViewport/Skeleton2D/Hip/UpLegL/ShinL/FootL:position", "Render/SubViewport/Skeleton2D/Hip/UpLegL/ShinL/FootL:rotation", "Render/SubViewport/Skeleton2D/Hip/UpLegL/ShinL:position", "Render/SubViewport/Skeleton2D/Hip/UpLegL/ShinL:rotation", "Render/SubViewport/Skeleton2D/Hip/UpLegL:position", "Render/SubViewport/Skeleton2D/Hip/UpLegL:rotation", "Render/SubViewport/Skeleton2D/Hip/UpLegR/ShinR/FootR/FootIK:position", "Render/SubViewport/Skeleton2D/Hip/UpLegR/ShinR/FootR/FootIK:rotation", "Render/SubViewport/Skeleton2D/Hip/UpLegR/ShinR/FootR/FootR2:position", "Render/SubViewport/Skeleton2D/Hip/UpLegR/ShinR/FootR/FootR2:rotation", "Render/SubViewport/Skeleton2D/Hip/UpLegR/ShinR/FootR:position", "Render/SubViewport/Skeleton2D/Hip/UpLegR/ShinR/FootR:rotation", "Render/SubViewport/Skeleton2D/Hip/UpLegR/ShinR:position", "Render/SubViewport/Skeleton2D/Hip/UpLegR/ShinR:rotation", "Render/SubViewport/Skeleton2D/Hip/UpLegR:position", "Render/SubViewport/Skeleton2D/Hip/UpLegR:rotation", "Render/SubViewport/Skeleton2D/Hip:position", "Render/SubViewport/Skeleton2D/Hip:rotation", "Skeleton2D/Hip/Body:position", "Skeleton2D/Hip/Body:rotation", "Skeleton2D/Hip/Body:scale", "Skeleton2D/Hip/UpLegL/ShinL/FootL/FootIK:position", "Skeleton2D/Hip/UpLegL/ShinL/FootL/FootIK:rotation", "Skeleton2D/Hip/UpLegL/ShinL/FootL/FootL2:position", "Skeleton2D/Hip/UpLegL/ShinL/FootL/FootL2:rotation", "Skeleton2D/Hip/UpLegL/ShinL/FootL:position", "Skeleton2D/Hip/UpLegL/ShinL/FootL:rotation", "Skeleton2D/Hip/UpLegL/ShinL:position", "Skeleton2D/Hip/UpLegL/ShinL:rotation", "Skeleton2D/Hip/UpLegL:position", "Skeleton2D/Hip/UpLegL:rotation", "Skeleton2D/Hip/UpLegR/ShinR/FootR/FootIK:position", "Skeleton2D/Hip/UpLegR/ShinR/FootR/FootIK:rotation", "Skeleton2D/Hip/UpLegR/ShinR/FootR/FootR2:position", "Skeleton2D/Hip/UpLegR/ShinR/FootR/FootR2:rotation", "Skeleton2D/Hip/UpLegR/ShinR/FootR:position", "Skeleton2D/Hip/UpLegR/ShinR/FootR:rotation", "Skeleton2D/Hip/UpLegR/ShinR:position", "Skeleton2D/Hip/UpLegR/ShinR:rotation", "Skeleton2D/Hip/UpLegR:position", "Skeleton2D/Hip/UpLegR:rotation", "Skeleton2D/Hip:position", "Skeleton2D/Hip:rotation", "TechnicalRoot/HeadLookAt:position", "TechnicalRoot/HeadLookAt:rotation", "TechnicalRoot/IKArmL/HandLLootAt:position", "TechnicalRoot/IKArmL/HandLLootAt:rotation", "TechnicalRoot/IKArmL:position", "TechnicalRoot/IKArmL:rotation", "TechnicalRoot/IKArmR/HandRLootAt:position", "TechnicalRoot/IKArmR/HandRLootAt:rotation", "TechnicalRoot/IKArmR:position", "TechnicalRoot/IKArmR:rotation"]
 
 [resource]
-nodes/output/position = Vector2(640, 280)
+graph_offset = Vector2(-563.004, 130.06839)
+nodes/output/position = Vector2(320, 160)
 nodes/IdleMove/node = SubResource("AnimationNodeBlend2_kdbng")
-nodes/IdleMove/position = Vector2(40, 220)
+nodes/IdleMove/position = Vector2(-140, 120)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_kqeb4")
-nodes/Animation/position = Vector2(-280, 140)
+nodes/Animation/position = Vector2(-440, 60)
 nodes/WalkSprint/node = SubResource("AnimationNodeBlend2_jqnpj")
-nodes/WalkSprint/position = Vector2(-241.33865, 378.30746)
+nodes/WalkSprint/position = Vector2(-420, 260)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_d3p0n")
-"nodes/Animation 2/position" = Vector2(-720, 260)
+"nodes/Animation 2/position" = Vector2(-860, 180)
 "nodes/Animation 3/node" = SubResource("AnimationNodeAnimation_pv0ru")
-"nodes/Animation 3/position" = Vector2(-720, 580)
-nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_d3p0n")
-nodes/TimeScale/position = Vector2(-480, 540)
-nodes/OneShot/node = SubResource("AnimationNodeOneShot_d3p0n")
-nodes/OneShot/position = Vector2(400, 480)
-nodes/FallState/node = SubResource("AnimationNodeStateMachine_cj6vo")
-nodes/FallState/position = Vector2(40, 720)
-"nodes/TimeScale 2/node" = SubResource("AnimationNodeTimeScale_4lai6")
-"nodes/TimeScale 2/position" = Vector2(-460, 320)
-node_connections = [&"output", 0, &"IdleMove", &"IdleMove", 0, &"Animation", &"IdleMove", 1, &"WalkSprint", &"WalkSprint", 0, &"TimeScale 2", &"WalkSprint", 1, &"TimeScale", &"TimeScale", 0, &"Animation 3", &"OneShot", 1, &"FallState", &"TimeScale 2", 0, &"Animation 2"]
+"nodes/Animation 3/position" = Vector2(-860, 380)
+nodes/RunScale/node = SubResource("AnimationNodeTimeScale_d3p0n")
+nodes/RunScale/position = Vector2(-600, 380)
+nodes/JumpApex/node = SubResource("AnimationNodeBlend2_4lai6")
+nodes/JumpApex/position = Vector2(80, 200)
+nodes/WalkScale/node = SubResource("AnimationNodeTimeScale_4lai6")
+nodes/WalkScale/position = Vector2(-600, 180)
+"nodes/Animation 4/node" = SubResource("AnimationNodeAnimation_4lai6")
+"nodes/Animation 4/position" = Vector2(-220, 460)
+node_connections = [&"output", 0, &"JumpApex", &"IdleMove", 0, &"Animation", &"IdleMove", 1, &"WalkSprint", &"WalkSprint", 0, &"WalkScale", &"WalkSprint", 1, &"RunScale", &"RunScale", 0, &"Animation 3", &"JumpApex", 0, &"IdleMove", &"JumpApex", 1, &"Animation 4", &"WalkScale", 0, &"Animation 2"]

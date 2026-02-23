@@ -15,9 +15,15 @@
 [ext_resource type="Texture2D" uid="uid://da17i6spd785n" path="res://assets/MarioSlingShooter/LoArmR.png" id="13_bxwvg"]
 [ext_resource type="Texture2D" uid="uid://uq8hon0vr8f0" path="res://assets/MarioSlingShooter/UpArmR.png" id="14_2v4cy"]
 [ext_resource type="AnimationLibrary" uid="uid://bkp8rgpfpjjlt" path="res://assets/animation/MarioShooter.res" id="15_i1nod"]
+[ext_resource type="SkeletonModificationStack2D" uid="uid://boii1ip8fqy52" path="res://assets/MainSkeleIK.tres" id="15_tebod"]
 [ext_resource type="Shader" uid="uid://bstsyp77p4yi3" path="res://scripts/player/player.gdshader" id="15_ykrpk"]
-[ext_resource type="SkeletonModificationStack2D" uid="uid://b6666flke0q54" path="res://assets/new_skeleton_modification_stack_2d.tres" id="17_4kqyw"]
+[ext_resource type="Script" uid="uid://vc7kpen1vsv5" path="res://scripts/player/camera.gd" id="17_8y75b"]
+[ext_resource type="Script" uid="uid://c0w7xs4lbmyn8" path="res://scripts/test.gd" id="18_svuau"]
+[ext_resource type="Script" uid="uid://tvj120fgqh82" path="res://scripts/player/bones/bone_ik.gd" id="19_8y75b"]
 [ext_resource type="AnimationNodeBlendTree" uid="uid://bk7w8gi587ey" path="res://assets/animation/MarioAnimationTree.tres" id="19_ro20i"]
+[ext_resource type="Script" uid="uid://cbhqwv2liekx2" path="res://scripts/player/rock_spawn_point.gd" id="22_6nfx3"]
+[ext_resource type="Texture2D" uid="uid://0fraas6jb43p" path="res://assets/BrokenLines.png" id="23_3hnlq"]
+[ext_resource type="Shader" uid="uid://cokdyj1ikil8k" path="res://resources/trajectory_line.gdshader" id="23_d73qs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_i1nod"]
 shader = ExtResource("15_ykrpk")
@@ -1026,18 +1032,38 @@ _data = {
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ro20i"]
 radius = 97.551636
-height = 1030.8408
+height = 491.8885
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u6wme"]
+shader = ExtResource("23_d73qs")
+shader_parameter/scrolling_speed = 1.0
+
+[sub_resource type="Curve" id="Curve_d73qs"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.5154438, 0.0, 0, 0]
+point_count = 2
 
 [node name="Player" type="CharacterBody2D" unique_id=1182183939]
-scale = Vector2(0.3, 0.3)
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_i1nod")
-walk_speed = 132.0
-sprint_speed = 680.0
-jump_velocity = 1500
-gravity_weight = 5000
+walk_speed = 280.0
+sprint_speed = 1000.0
+jump_velocity = 4000
+gravity_weight = 10000
+limb_timer = 2.0
+handr_distance = 250.0
+handl_distance = 250.0
+_hand_r = NodePath("Render/SubViewport/BoneIK/ArmRIK")
+head_look_at = NodePath("Render/SubViewport/BoneIK/HeadLookAt")
+_hand_l = NodePath("Render/SubViewport/BoneIK/ArmLIK")
+rock_spawn_point = NodePath("RockSpawnPoint")
+power = 200.0
+power_max = 1000.0
+max_speed = 10000.0
 metadata/_edit_horizontal_guides_ = [472.7508, 1163.2123, 1145.7253, 1220.333, 1209.685]
 
 [node name="Render" type="Node2D" parent="." unique_id=1184681078]
+scale = Vector2(0.5, 0.5)
 
 [node name="SubViewport" type="SubViewport" parent="Render" unique_id=1309826608]
 unique_name_in_owner = true
@@ -1049,9 +1075,9 @@ position = Vector2(519.25385, 598.73114)
 scale = Vector2(0.9999974, 0.9999974)
 
 [node name="Head" type="Sprite2D" parent="Render/SubViewport/Sprites" unique_id=1821395704]
-position = Vector2(65.6145, -121.191284)
-rotation = 0.08773719
-scale = Vector2(0.9998776, 0.9998776)
+position = Vector2(-7.4959717, -127.75464)
+rotation = 0.37324768
+scale = Vector2(0.99987775, 0.99987775)
 texture = ExtResource("1_hv5x3")
 offset = Vector2(37.063892, -115.897736)
 
@@ -1061,27 +1087,40 @@ offset = Vector2(37.063892, -115.897736)
 position = Vector2(-0.8973694, -66.735535)
 
 [node name="HandL" type="Sprite2D" parent="Render/SubViewport/Sprites/ArmL" unique_id=780959891]
-position = Vector2(-53.094086, 182.64935)
-rotation = -0.30942577
-scale = Vector2(0.9998222, 0.9998222)
+position = Vector2(-102.66144, -220.23264)
+rotation = 2.463374
+scale = Vector2(0.999822, 0.999822)
 texture = ExtResource("2_ykrpk")
 offset = Vector2(14.174126, 28.681366)
 
 [node name="Marker2D" type="Marker2D" parent="Render/SubViewport/Sprites/ArmL/HandL" unique_id=1275034782]
+position = Vector2(3.0517578e-05, 50)
+
+[node name="SlingShot" type="Node2D" parent="Render/SubViewport/Sprites/ArmL/HandL" unique_id=2015289299]
+position = Vector2(0, 50)
+scale = Vector2(0.30011702, 0.30011702)
+
+[node name="Polygon2D" type="Polygon2D" parent="Render/SubViewport/Sprites/ArmL/HandL/SlingShot" unique_id=552155231]
+rotation = 0.055850536
+color = Color(0.6513945, 0.27591142, 0, 1)
+polygon = PackedVector2Array(480.0001, -184, 400.00003, -96, 257.30432, -27.496513, -261.5169, -27.909523, -258.533, 98.85359, 256.00003, 96.00003, 472.70715, 297.42923, 532.85645, 304.90884, 535.1768, 208.43793, 352.0001, 56.00003, 544.0001, -112, 560.0001, -168, -159.01651, -25.444153, 1.1677246, 87.00122, -32.833496, -4.3103943, 48.00003, -8, 184.00003, 8.0000305, 376.00003, 192.00003, 360.00003, 16)
+uv = PackedVector2Array(-254.8149, -255.6435, -188.47197, -171.20703, -73.87961, 9.7282715, -61.81726, 528.4094, 64.83745, 522.3783, 52.775093, 3.697052, 245.77277, -213.42526, 251.80391, -273.73703, 155.3051, -273.73703, 46.74392, -122.957634, -37.69246, -128.9888, -140.22246, -267.70587, -61.81726, 425.8794, 46.74392, 263.03766, -43.72373, 299.2247, -49.754906, 226.85065, -55.786083, 100.19588, 144, 192.00003, 256.00006, -87.999985)
+polygons = [PackedInt32Array(6, 7, 8), PackedInt32Array(2, 5, 9), PackedInt32Array(0, 1, 10), PackedInt32Array(0, 10, 11), PackedInt32Array(3, 4, 12), PackedInt32Array(4, 12, 13), PackedInt32Array(12, 13, 14), PackedInt32Array(12, 14, 15), PackedInt32Array(13, 14, 15), PackedInt32Array(5, 13, 16), PackedInt32Array(13, 15, 16), PackedInt32Array(2, 5, 16), PackedInt32Array(6, 8, 17), PackedInt32Array(8, 9, 17), PackedInt32Array(5, 9, 17), PackedInt32Array(1, 10, 18), PackedInt32Array(1, 2, 18), PackedInt32Array(2, 9, 18)]
+internal_vertex_count = 7
 
 [node name="LoArmL" type="Sprite2D" parent="Render/SubViewport/Sprites/ArmL" unique_id=48622874]
-position = Vector2(-67.52542, 35.608643)
-rotation = 0.15125631
-scale = Vector2(0.99982214, 0.99982214)
+position = Vector2(15.5372925, -131.58575)
+rotation = 2.463374
+scale = Vector2(0.999822, 0.999822)
 texture = ExtResource("3_i1nod")
 offset = Vector2(17.510612, 69.44067)
 
 [node name="Marker2D" type="Marker2D" parent="Render/SubViewport/Sprites/ArmL/LoArmL" unique_id=73531080]
 
 [node name="UpArmL" type="Sprite2D" parent="Render/SubViewport/Sprites/ArmL" unique_id=1608495272]
-position = Vector2(60.539368, -6.8151855)
-rotation = 1.2831825
-scale = Vector2(0.9998394, 0.9998394)
+position = Vector2(-6.303955, 1.5237427)
+rotation = -2.946822
+scale = Vector2(0.99983966, 0.99983966)
 texture = ExtResource("4_4kqyw")
 offset = Vector2(1.75, 67.265625)
 
@@ -1103,9 +1142,9 @@ internal_vertex_count = 323
 position = Vector2(5.020569, 212.37408)
 
 [node name="UpLegL" type="Sprite2D" parent="Render/SubViewport/Sprites/LegL" unique_id=1608420368]
-position = Vector2(-13.658722, 2.508728)
-rotation = -1.0336413
-scale = Vector2(0.99996835, 0.99996835)
+position = Vector2(2.2780151, 1.0721436)
+rotation = -1.608147
+scale = Vector2(0.9999666, 0.9999666)
 texture = ExtResource("6_ro20i")
 offset = Vector2(0.4803629, 72.63057)
 
@@ -1125,8 +1164,7 @@ internal_vertex_count = 84
 [node name="Marker2D2" type="Marker2D" parent="Render/SubViewport/Sprites/LegL/ShinL" unique_id=1477784878]
 
 [node name="Hip" type="Sprite2D" parent="Render/SubViewport/Sprites" unique_id=191255987]
-position = Vector2(-1.2538452, 165.51337)
-rotation = 0.32069698
+position = Vector2(-1.2538452, 164.26929)
 scale = Vector2(1.0000026, 1.0000026)
 texture = ExtResource("8_tebod")
 offset = Vector2(0, 52.316)
@@ -1137,8 +1175,8 @@ offset = Vector2(0, 52.316)
 position = Vector2(-13.808411, 221.32092)
 
 [node name="UpLegR" type="Sprite2D" parent="Render/SubViewport/Sprites/LegR" unique_id=1657177333]
-position = Vector2(-15.436401, -3.2491455)
-rotation = 0.2072461
+position = Vector2(2.5545044, 1.6442871)
+rotation = -0.0020707287
 scale = Vector2(0.99987984, 0.99987984)
 texture = ExtResource("9_6nfx3")
 offset = Vector2(-0.62091064, 72.03186)
@@ -1163,8 +1201,7 @@ position = Vector2(0.8460388, 0)
 position = Vector2(-17.43872, 170.3703)
 
 [node name="Belt" type="Sprite2D" parent="Render/SubViewport/Sprites" unique_id=603536937]
-position = Vector2(-1.2538452, 165.51337)
-rotation = 0.32069698
+position = Vector2(-1.2538452, 164.26929)
 scale = Vector2(1.0000026, 1.0000026)
 texture = ExtResource("11_d73qs")
 offset = Vector2(3, 19.5)
@@ -1173,32 +1210,32 @@ offset = Vector2(3, 19.5)
 position = Vector2(-34.90909, -48.90909)
 
 [node name="UpArmR" type="Sprite2D" parent="Render/SubViewport/Sprites/ArmR" unique_id=461348569]
-position = Vector2(60.003113, -9.862732)
-rotation = -0.25011966
-scale = Vector2(0.9998525, 0.9998525)
+position = Vector2(-5.7767944, 2.394226)
+rotation = 2.1775327
+scale = Vector2(1.0016204, 1.0016204)
 texture = ExtResource("14_2v4cy")
 offset = Vector2(-14.734375, 61.476563)
 
 [node name="LoArmR" type="Sprite2D" parent="Render/SubViewport/Sprites/ArmR" unique_id=1571298702]
-position = Vector2(60.011597, 122.01056)
-rotation = -1.1021446
-scale = Vector2(1.0007658, 1.0007658)
+position = Vector2(-92.299255, -97.44345)
+rotation = 2.3868806
+scale = Vector2(1.0025353, 1.0025353)
 texture = ExtResource("13_bxwvg")
 offset = Vector2(-3.4603348, 71.8647)
 
 [node name="Marker2D" type="Marker2D" parent="Render/SubViewport/Sprites/ArmR/LoArmR" unique_id=223041339]
 
 [node name="HandR" type="Sprite2D" parent="Render/SubViewport/Sprites/ArmR" unique_id=1970332231]
-position = Vector2(189.16968, 194.13641)
-rotation = -1.8800421
-scale = Vector2(1.0006293, 1.0006293)
+position = Vector2(-189.35367, -209.43384)
+rotation = 2.3868806
+scale = Vector2(1.0023901, 1.0023901)
 texture = ExtResource("12_u6wme")
 offset = Vector2(1.570343, 32.049316)
 
 [node name="Marker2D" type="Marker2D" parent="Render/SubViewport/Sprites/ArmR/HandR" unique_id=1430820372]
 
 [node name="Skeleton" type="Skeleton2D" parent="Render/SubViewport" unique_id=1138865275]
-modification_stack = ExtResource("17_4kqyw")
+modification_stack = ExtResource("15_tebod")
 
 [node name="Hip" type="Bone2D" parent="Render/SubViewport/Skeleton" unique_id=1732210145]
 position = Vector2(518, 763)
@@ -1222,6 +1259,7 @@ rest = Transform2D(0.999614, 0.023072505, -0.023072505, 0.999614, 19.696644, -98
 auto_calculate_length_and_angle = false
 length = 136.714
 bone_angle = 0.0
+metadata/_local_pose_override_enabled_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Render/SubViewport/Skeleton/Hip/Spine/Torso/Head" unique_id=1239108648]
 remote_path = NodePath("../../../../../../Sprites/Head")
@@ -1229,17 +1267,19 @@ remote_path = NodePath("../../../../../../Sprites/Head")
 [node name="UpArmR" type="Bone2D" parent="Render/SubViewport/Skeleton/Hip/Spine/Torso" unique_id=1026030127]
 position = Vector2(-16.649231, -18.35321)
 rotation = 4.426212e-05
-scale = Vector2(0.99984986, 0.99984986)
+scale = Vector2(1.001618, 1.001618)
 rest = Transform2D(0.99854547, -0.050836295, 0.050836295, 0.99854547, -16.059631, -32.966675)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="LoArmR" type="Bone2D" parent="Render/SubViewport/Skeleton/Hip/Spine/Torso/UpArmR" unique_id=1265513412]
 position = Vector2(-32.630737, 127.798706)
-scale = Vector2(1.0009135, 1.0009135)
+scale = Vector2(1.0009137, 1.0009137)
 rest = Transform2D(1.0008452, 0, 0, 1.0008452, -32.635406, 127.791565)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="HandR" type="Bone2D" parent="Render/SubViewport/Skeleton/Hip/Spine/Torso/UpArmR/LoArmR" unique_id=1048356871]
 position = Vector2(-6.0058947, 147.69696)
-scale = Vector2(0.99986356, 0.99986356)
+scale = Vector2(0.9998551, 0.9998551)
 rest = Transform2D(1, 0, 0, 1, -6.0058947, 147.69696)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Render/SubViewport/Skeleton/Hip/Spine/Torso/UpArmR/LoArmR/HandR" unique_id=1445704158]
@@ -1256,12 +1296,14 @@ position = Vector2(17.541779, -35.724426)
 rotation = 0.004946691
 scale = Vector2(0.9998369, 0.9998369)
 rest = Transform2D(0.99972796, 0.0091608, -0.0091608, 0.99972796, 18.12085, -50.351196)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="LoArmL" type="Bone2D" parent="Render/SubViewport/Skeleton/Hip/Spine/Torso/UpArmL" unique_id=277416014]
 position = Vector2(4.334656, 134.84143)
 rotation = -0.00938398
 scale = Vector2(0.9999827, 0.9999827)
 rest = Transform2D(0.99995655, 0, 0, 0.99995655, 4.3339233, 134.8352)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="HandL" type="Bone2D" parent="Render/SubViewport/Skeleton/Hip/Spine/Torso/UpArmL/LoArmL" unique_id=611857230]
 position = Vector2(36.42917, 143.21278)
@@ -1281,18 +1323,21 @@ position = Vector2(-10.000061, 58.6958)
 rotation = -0.0099948095
 scale = Vector2(0.9998773, 0.9998773)
 rest = Transform2D(0.99671686, -0.07943794, 0.07943794, 0.99671686, -10.000061, 58.6958)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="ShinR" type="Bone2D" parent="Render/SubViewport/Skeleton/Hip/LegR" unique_id=686638746]
 position = Vector2(-9.270111, 168.79578)
 rotation = 0.01900847
 scale = Vector2(0.9999702, 0.9999702)
 rest = Transform2D(0.9875583, 0.15720753, -0.15720753, 0.9875583, -9.268402, 168.78943)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="Foot1" type="Bone2D" parent="Render/SubViewport/Skeleton/Hip/LegR/ShinR" unique_id=899031434]
 position = Vector2(-12.164178, 170.82794)
 rotation = -0.0025810967
 scale = Vector2(0.99983066, 0.99983066)
 rest = Transform2D(0.996025, -0.087211534, 0.087211534, 0.996025, -12.164178, 170.82794)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="Foot2" type="Bone2D" parent="Render/SubViewport/Skeleton/Hip/LegR/ShinR/Foot1" unique_id=899931520]
 position = Vector2(62.815254, 19.253832)
@@ -1316,18 +1361,21 @@ position = Vector2(8.552429, 49.17682)
 rotation = -0.026840512
 scale = Vector2(0.9999658, 0.9999658)
 rest = Transform2D(0.97543997, -0.21990587, 0.21990587, 0.97543997, 8.552429, 49.17682)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="ShinL" type="Bone2D" parent="Render/SubViewport/Skeleton/Hip/LegL" unique_id=1057036947]
 position = Vector2(-6.3427734, 167.0893)
 rotation = 0.0029761463
 scale = Vector2(1.0000056, 1.0000056)
 rest = Transform2D(0.93878037, 0.3444816, -0.3444816, 0.93878037, -6.3396606, 167.08942)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="Foot1" type="Bone2D" parent="Render/SubViewport/Skeleton/Hip/LegL/ShinL" unique_id=874537554]
 position = Vector2(-18.84492, 170.22044)
 rotation = 0.06852518
 scale = Vector2(0.99998724, 0.99998724)
 rest = Transform2D(0.99552876, -0.09349018, 0.09349018, 0.99552876, -18.84492, 170.22044)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="Foot2" type="Bone2D" parent="Render/SubViewport/Skeleton/Hip/LegL/ShinL/Foot1" unique_id=1610560561]
 position = Vector2(62.01303, 21.69908)
@@ -1353,26 +1401,37 @@ remote_path = NodePath("../../../Sprites/Hip")
 remote_path = NodePath("../../../Sprites/Belt")
 
 [node name="BoneIK" type="Node2D" parent="Render/SubViewport" unique_id=1137051628]
+position = Vector2(519.25385, 598.73114)
 scale = Vector2(0.9999974, 0.9999974)
+script = ExtResource("19_8y75b")
+head_look_at = NodePath("HeadLookAt")
+arm_RIK = NodePath("ArmRIK")
+arm_LIK = NodePath("ArmLIK")
+leg_RIK = NodePath("LegRIK")
+leg_LIK = NodePath("LegLIK")
+b_head_look_at = NodePath("../Skeleton/Hip/Spine/Torso/Head")
+b_arm_RIK = NodePath("../Skeleton/Hip/Spine/Torso/UpArmR/LoArmR/HandR")
+b_arm_LIK = NodePath("../Skeleton/Hip/Spine/Torso/UpArmL/LoArmL/HandL")
+b_leg_RIK = NodePath("../Skeleton/Hip/LegR/ShinR/Foot1/LegIK")
+b_leg_LIK = NodePath("../Skeleton/Hip/LegL/ShinL/Foot1/LegIK")
 
 [node name="HeadLookAt" type="Marker2D" parent="Render/SubViewport/BoneIK" unique_id=2133227845]
 position = Vector2(318.738, 0)
-scale = Vector2(0.30000076, 0.30000076)
+scale = Vector2(1.0000026, 1.0000026)
 gizmo_extents = 48.0
 
 [node name="ArmRIK" type="Marker2D" parent="Render/SubViewport/BoneIK" unique_id=2082571415]
-position = Vector2(139.36551, 246.65999)
-rotation = -0.008257348
-scale = Vector2(0.30024725, 0.30024725)
+position = Vector2(-519.2552, -598.7327)
+scale = Vector2(1.0000026, 1.0000026)
 gizmo_extents = 48.0
 
 [node name="ArmLIK" type="Marker2D" parent="Render/SubViewport/BoneIK" unique_id=553772257]
-position = Vector2(585.8904, 833.8953)
+position = Vector2(-519.2552, -598.7327)
+scale = Vector2(1.0000026, 1.0000026)
 gizmo_extents = 48.0
 
 [node name="LegLIK" type="Marker2D" parent="Render/SubViewport/BoneIK" unique_id=1600148460]
 position = Vector2(71.05981, 378.9901)
-scale = Vector2(0.30024725, 0.30024725)
 gizmo_extents = 48.0
 
 [node name="FootLookAt" type="Marker2D" parent="Render/SubViewport/BoneIK/LegLIK" unique_id=1085465897]
@@ -1381,7 +1440,6 @@ gizmo_extents = 48.0
 
 [node name="LegRIK" type="Marker2D" parent="Render/SubViewport/BoneIK" unique_id=710129001]
 position = Vector2(-193.08661, 989.4666)
-scale = Vector2(0.30024725, 0.30024725)
 gizmo_extents = 48.0
 
 [node name="FootLookAt" type="Marker2D" parent="Render/SubViewport/BoneIK/LegRIK" unique_id=781706662]
@@ -1393,87 +1451,75 @@ material = SubResource("ShaderMaterial_i1nod")
 position = Vector2(3.7974854, 3.7976074)
 texture = SubResource("ViewportTexture_4kqyw")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1790368591]
-position = Vector2(1346.3859, -648.8962)
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1790368591 node_paths=PackedStringArray("player")]
+offset = Vector2(0, 200)
+zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
+script = ExtResource("17_8y75b")
+player = NodePath("..")
+max_vertical_offset = 500.0
+max_horizontal_offset = 500.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1052911053]
 libraries/ = SubResource("AnimationLibrary_4kqyw")
 libraries/MarioShooter = ExtResource("15_i1nod")
 
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=2042972114]
+deterministic = false
+tree_root = ExtResource("19_ro20i")
+anim_player = NodePath("../AnimationPlayer")
+parameters/IdleMove/blend_amount = 0.0
+parameters/WalkSprint/blend_amount = 0.0
+parameters/RunScale/scale = 1.2299999999999969
+parameters/JumpApex/blend_amount = 0.3
+parameters/WalkScale/scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1650633557]
+position = Vector2(0, 30.258087)
+shape = SubResource("CapsuleShape2D_ro20i")
+
+[node name="LimbControlComponent" type="Node" parent="." unique_id=1183998393]
+script = ExtResource("18_svuau")
+
 [node name="RemoteNodes" type="Node2D" parent="." unique_id=1986646175]
-visible = false
 
 [node name="HeadLookAt" type="Marker2D" parent="RemoteNodes" unique_id=1149124219]
-position = Vector2(917.9397, 13.032072)
-rotation = 0.061830606
-scale = Vector2(1.0000026, 1.0000026)
 gizmo_extents = 48.0
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="RemoteNodes/HeadLookAt" unique_id=153717896]
-position = Vector2(530.7676, 411.27634)
-rotation = -0.030915307
-scale = Vector2(0.9999973, 0.9999973)
 remote_path = NodePath("../../../Render/SubViewport/BoneIK/HeadLookAt")
 
-[node name="ArmRIK" type="Marker2D" parent="RemoteNodes" unique_id=934464088]
-position = Vector2(464.55045, 822.1978)
-rotation = -0.008257348
-scale = Vector2(1.0008216, 1.0008216)
-gizmo_extents = 48.0
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="RemoteNodes/ArmRIK" unique_id=2118698097]
-remote_path = NodePath("../../../Render/SubViewport/BoneIK/ArmRIK")
-
 [node name="ArmLIK" type="Marker2D" parent="RemoteNodes" unique_id=766480486]
-position = Vector2(563.62775, 809.5746)
-rotation = -0.008257348
-scale = Vector2(1.0008216, 1.0008216)
 gizmo_extents = 48.0
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="RemoteNodes/ArmLIK" unique_id=1334955394]
-remote_path = NodePath("..")
+remote_path = NodePath("../../../Render/SubViewport/BoneIK/ArmLIK")
 
-[node name="LegRIK" type="Marker2D" parent="RemoteNodes" unique_id=2004404943]
-position = Vector2(406.18823, 1163.2128)
-rotation = -0.008257345
-scale = Vector2(1.0008215, 1.0008215)
+[node name="Node2D" type="Node2D" parent="." unique_id=199713288]
+
+[node name="ArmRIK" type="Marker2D" parent="Node2D" unique_id=934464088]
 gizmo_extents = 48.0
 
-[node name="FootLookAt" type="Marker2D" parent="RemoteNodes/LegRIK" unique_id=625482543]
-position = Vector2(283.527, 59.532)
-gizmo_extents = 48.0
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Node2D/ArmRIK" unique_id=2118698097]
+remote_path = NodePath("../../../Render/SubViewport/BoneIK/ArmRIK")
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="RemoteNodes/LegRIK" unique_id=985444478]
-position = Vector2(-145.68083, -74.35033)
-rotation = 0.43224302
-remote_path = NodePath("../../../Render/SubViewport/BoneIK/LegRIK")
+[node name="RockSpawnPoint" type="Marker2D" parent="." unique_id=2040183222 node_paths=PackedStringArray("player")]
+position = Vector2(-122.50214, 180.52148)
+rotation = -0.2721122
+scale = Vector2(0.99953663, 0.99953663)
+script = ExtResource("22_6nfx3")
+player = NodePath("..")
+traj_steps = 1000
 
-[node name="LegLIK" type="Marker2D" parent="RemoteNodes" unique_id=974770261]
-position = Vector2(435.88736, 1139.2944)
-rotation = -0.008257344
-scale = Vector2(1.0008215, 1.0008215)
-gizmo_extents = 48.0
+[node name="TrajectoryLine" type="Line2D" parent="RockSpawnPoint" unique_id=230551453]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_u6wme")
+points = PackedVector2Array(954.0017, 229.86316, 1568.1045, 104.87033, 1840.6145, 479.95184)
+width = 150.0
+width_curve = SubResource("Curve_d73qs")
+texture = ExtResource("23_3hnlq")
+texture_mode = 1
+joint_mode = 1
 
-[node name="FootLookAt" type="Marker2D" parent="RemoteNodes/LegLIK" unique_id=2030005532]
-position = Vector2(283.503, 85.655)
-gizmo_extents = 48.0
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="RemoteNodes/LegLIK" unique_id=99568869]
-remote_path = NodePath("../../../Render/SubViewport/BoneIK/LegLIK")
-
-[node name="AnimationTree" type="AnimationTree" parent="." unique_id=2042972114]
-tree_root = ExtResource("19_ro20i")
-anim_player = NodePath("../AnimationPlayer")
-parameters/IdleMove/blend_amount = 1.0
-parameters/WalkSprint/blend_amount = 1.0
-parameters/TimeScale/scale = 1.0
-parameters/OneShot/active = false
-parameters/OneShot/internal_active = false
-parameters/OneShot/request = 0
-parameters/FallState/conditions/grounded = false
-"parameters/TimeScale 2/scale" = 1.6000000000000014
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1650633557]
-position = Vector2(0, 74.18109)
-shape = SubResource("CapsuleShape2D_ro20i")
+[node name="ReadySlingCooldown" type="Timer" parent="." unique_id=1913233847]
+one_shot = true

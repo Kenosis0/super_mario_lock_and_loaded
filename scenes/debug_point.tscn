@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c0b67dm0eqar5"]
+
+[node name="DebugPoint" type="Polygon2D" unique_id=1104726300]
+polygon = PackedVector2Array(-32, 0, 0, -32, 32, 0, 0, 32)
+uv = PackedVector2Array(-152, -88, -120, -120, -88, -88, -120, -56)
+polygons = [PackedInt32Array(0, 1, 2), PackedInt32Array(0, 2, 3)]

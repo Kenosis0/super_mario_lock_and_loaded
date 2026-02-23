@@ -1,11 +1,14 @@
 extends Node2D
-@onready var mouse: Polygon2D = $Mouse
-@onready var target: Polygon2D = $Target
+
+
+
+func _ready() -> void:
+	return
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 
 func _process(delta: float) -> void:
-	mouse.global_position = get_global_mouse_position()
-
+	pass
 	#follow_target(target, get_global_mouse_position())
 	#if target == null:
 		#return

@@ -1,48 +1,101 @@
-[gd_scene format=4 uid="uid://ym6mb3us0jsl"]
+[gd_scene format=3 uid="uid://ym6mb3us0jsl"]
 
 [ext_resource type="Script" uid="uid://c60xtul8n4jof" path="res://scripts/main.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://dqo6vvy0pcixm" path="res://scenes/characters/player/player.tscn" id="2_0wfyh"]
-[ext_resource type="Texture2D" uid="uid://bbk45ikwjqkpy" path="res://assets/Background.png" id="2_jyhfs"]
-[ext_resource type="Texture2D" uid="uid://bvsf06450cksq" path="res://assets/Block.png" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://dvccfyr1ojfgl" path="res://scenes/levels/level1.tscn" id="2_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://j8helgs1nrin" path="res://scenes/characters/goomba/goomba.tscn" id="5_tbgi4"]
+[ext_resource type="FontFile" uid="uid://x6manew3u23n" path="res://assets/fonts/Melon Pop.ttf" id="10_ya4ey"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
-texture = ExtResource("4_jyhfs")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
-
-[sub_resource type="TileSet" id="TileSet_tefeu"]
-tile_size = Vector2i(256, 256)
-physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_tbgi4")
+[sub_resource type="LabelSettings" id="LabelSettings_eb6dy"]
+font = ExtResource("10_ya4ey")
+font_size = 100
+outline_size = 32
+outline_color = Color(1, 0.40784314, 0, 1)
 
 [node name="Main" type="Node2D" unique_id=1472878119]
 script = ExtResource("1_sugp2")
 
-[node name="Parallax2D" type="Parallax2D" parent="." unique_id=856129012]
-repeat_size = Vector2(1980, 1080)
-
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=724888184]
-texture = ExtResource("2_jyhfs")
-centered = false
+[node name="Level1" parent="." unique_id=1742047847 instance=ExtResource("2_tbgi4")]
 
 [node name="Player2" parent="." unique_id=1182183939 instance=ExtResource("2_0wfyh")]
+position = Vector2(-154.66553, 2246.7168)
 
-[node name="Mouse" type="Polygon2D" parent="." unique_id=1610031937]
-visible = false
-color = Color(1, 0, 1, 1)
-polygon = PackedVector2Array(-16.000008, 0, 0, -16, 16.000008, 0, 0, 16)
-uv = PackedVector2Array(-1.6126709, -14.748688, -1.1338806, -14.269901, 0.5418625, -10.679024)
-polygons = [PackedInt32Array(0, 1, 3), PackedInt32Array(1, 2, 3)]
+[node name="Goomba" parent="." unique_id=799814277 instance=ExtResource("5_tbgi4")]
+position = Vector2(2480.3083, 2228.3635)
 
-[node name="Target" type="Polygon2D" parent="." unique_id=1216786760]
-position = Vector2(-11.590286, -165.51143)
-color = Color(5.390644e-06, 0.6795128, 0.90102863, 1)
-offset = Vector2(17.30664, 0.25282288)
-polygon = PackedVector2Array(-16.000004, 8, 0, -8.000002, 8, 0, 16, -8, 120, 8.000002, 16, 23.999998, 7.9999924, 15.999996, 0, 24)
-uv = PackedVector2Array(-1.6126709, -14.748688, -1.1338806, -14.269901, 0.5418625, -10.679024)
-polygons = [PackedInt32Array(0, 1, 2), PackedInt32Array(2, 3, 5), PackedInt32Array(3, 4, 5), PackedInt32Array(0, 2, 6), PackedInt32Array(2, 5, 6), PackedInt32Array(0, 6, 7)]
+[node name="Goomba5" parent="." unique_id=1569516127 instance=ExtResource("5_tbgi4")]
+position = Vector2(-1097.7883, 2738.1467)
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1292774216]
-tile_map_data = PackedByteArray("AAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAJAAQAAAAAAAAAAAAKAAQAAAAAAAAAAAALAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAANAAQAAAAAAAAAAAAOAAQAAAAAAAAAAAAPAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAD1/wQAAAAAAAAAAAD2/wQAAAAAAAAAAAD3/wQAAAAAAAAAAAD4/wQAAAAAAAAAAAD5/wQAAAAAAAAAAAD6/wQAAAAAAAAAAAD7/wQAAAAAAAAAAAD8/wQAAAAAAAAAAAD9/wQAAAAAAAAAAAD+/wQAAAAAAAAAAAD//wQAAAAAAAAAAAARAAQAAAAAAAAAAAASAAQAAAAAAAAAAAATAAQAAAAAAAAAAAAUAAQAAAAAAAAAAAAVAAQAAAAAAAAAAAAWAAQAAAAAAAAAAAAXAAQAAAAAAAAAAAAYAAQAAAAAAAAAAAAZAAQAAAAAAAAAAAAaAAQAAAAAAAAAAAAbAAQAAAAAAAAAAAAcAAQAAAAAAAAAAAAdAAQAAAAAAAAAAAAeAAQAAAAAAAAAAAAfAAQAAAAAAAAAAAA=")
-tile_set = SubResource("TileSet_tefeu")
+[node name="Goomba6" parent="." unique_id=1466026596 instance=ExtResource("5_tbgi4")]
+position = Vector2(-3710.4429, 2488.8079)
+
+[node name="Goomba7" parent="." unique_id=1272756210 instance=ExtResource("5_tbgi4")]
+position = Vector2(-5474.913, 2475.023)
+
+[node name="Goomba8" parent="." unique_id=929582295 instance=ExtResource("5_tbgi4")]
+position = Vector2(-7611.576, 1450.3439)
+
+[node name="Goomba9" parent="." unique_id=456511629 instance=ExtResource("5_tbgi4")]
+position = Vector2(-9881.494, 2994.2551)
+
+[node name="Goomba10" parent="." unique_id=1093055624 instance=ExtResource("5_tbgi4")]
+position = Vector2(-12068.702, 2994.2546)
+
+[node name="Goomba11" parent="." unique_id=1574020854 instance=ExtResource("5_tbgi4")]
+position = Vector2(-13892.907, 2736.9363)
+
+[node name="Goomba12" parent="." unique_id=1985097691 instance=ExtResource("5_tbgi4")]
+position = Vector2(-17601.05, 2217.7043)
+
+[node name="Goomba13" parent="." unique_id=1764658753 instance=ExtResource("5_tbgi4")]
+position = Vector2(-19395.389, 1469.6423)
+
+[node name="Goomba14" parent="." unique_id=616450627 instance=ExtResource("5_tbgi4")]
+position = Vector2(-21912.518, 2980.9294)
+
+[node name="Goomba15" parent="." unique_id=1255143089 instance=ExtResource("5_tbgi4")]
+position = Vector2(-25106.945, 2996.0928)
+
+[node name="Goomba2" parent="." unique_id=977528156 instance=ExtResource("5_tbgi4")]
+position = Vector2(7106.183, 2481.544)
+
+[node name="Goomba3" parent="." unique_id=1966231179 instance=ExtResource("5_tbgi4")]
+position = Vector2(10544.308, 2739.5718)
+
+[node name="Goomba4" parent="." unique_id=912166354 instance=ExtResource("5_tbgi4")]
+position = Vector2(13289.705, 2480.1147)
+
+[node name="Goomba16" parent="." unique_id=2022141891 instance=ExtResource("5_tbgi4")]
+position = Vector2(17322.846, 2474.2)
+
+[node name="Goomba17" parent="." unique_id=502654211 instance=ExtResource("5_tbgi4")]
+position = Vector2(20831.652, 2482.226)
+
+[node name="Goomba18" parent="." unique_id=1051917021 instance=ExtResource("5_tbgi4")]
+position = Vector2(22766.504, 1714.9573)
+
+[node name="Goomba19" parent="." unique_id=1881029777 instance=ExtResource("5_tbgi4")]
+position = Vector2(24879.273, 2232.0298)
+
+[node name="Goomba20" parent="." unique_id=1839066031 instance=ExtResource("5_tbgi4")]
+position = Vector2(27751.828, 1974.5693)
+
+[node name="Goomba21" parent="." unique_id=1763489648 instance=ExtResource("5_tbgi4")]
+position = Vector2(29904.629, 1719.7693)
+
+[node name="Goomba22" parent="." unique_id=935966097 instance=ExtResource("5_tbgi4")]
+position = Vector2(32424.348, 1975.9456)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1918231583]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=175348651]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 50
+
+[node name="Score" type="Label" parent="CanvasLayer/MarginContainer" unique_id=498770515]
+custom_minimum_size = Vector2(850, 300)
+layout_mode = 2
+text = "000000"
+label_settings = SubResource("LabelSettings_eb6dy")
+vertical_alignment = 1

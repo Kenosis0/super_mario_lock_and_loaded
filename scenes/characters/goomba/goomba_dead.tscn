@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://csqd7wp56tecr"]
+
+[ext_resource type="Script" uid="uid://b37jxw4vpxq2r" path="res://scripts/goomba/goomba_dead.gd" id="1_ncopc"]
+[ext_resource type="Script" uid="uid://bb1rhcjvjhgrw" path="res://scripts/goomba/sprites.gd" id="2_wsxqa"]
+[ext_resource type="Texture2D" uid="uid://1ocpwbswkoea" path="res://assets/enemy/Body.png" id="3_unffs"]
+[ext_resource type="Texture2D" uid="uid://e2n5d2ce4fnv" path="res://assets/enemy/FootL.png" id="4_mwn0r"]
+[ext_resource type="Texture2D" uid="uid://cjfdgojs2r716" path="res://assets/enemy/FootR.png" id="5_xwwnh"]
+[ext_resource type="Texture2D" uid="uid://bo6jhhdq5hs3f" path="res://assets/enemy/Head.png" id="6_dydqt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kowhd"]
+radius = 114.79232
+
+[sub_resource type="Shader" id="Shader_hqi5w"]
+code = "shader_type canvas_item;
+
+uniform vec4 fill_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float fill_amount : hint_range(0.0, 1.0) = 1.0; 
+// 0 = original texture, 1 = fully filled
+
+void fragment() {
+    vec4 tex = texture(TEXTURE, UV);
+
+    // Blend texture -> solid fill
+    vec3 rgb = mix(tex.rgb, fill_color.rgb, fill_amount);
+
+    // Keep original sprite shape / transparency
+    COLOR = vec4(rgb, tex.a);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k7bdq"]
+shader = SubResource("Shader_hqi5w")
+shader_parameter/fill_color = Color(1, 1, 1, 1)
+shader_parameter/fill_amount = 0.0
+
+[sub_resource type="Shader" id="Shader_kowhd"]
+code = "shader_type canvas_item;
+
+uniform vec4 fill_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float fill_amount : hint_range(0.0, 1.0) = 1.0; 
+// 0 = original texture, 1 = fully filled
+
+void fragment() {
+    vec4 tex = texture(TEXTURE, UV);
+
+    // Blend texture -> solid fill
+    vec3 rgb = mix(tex.rgb, fill_color.rgb, fill_amount);
+
+    // Keep original sprite shape / transparency
+    COLOR = vec4(rgb, tex.a);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ipta"]
+shader = SubResource("Shader_kowhd")
+shader_parameter/fill_color = Color(1, 1, 1, 1)
+shader_parameter/fill_amount = 0.0
+
+[sub_resource type="Shader" id="Shader_6hdtm"]
+code = "shader_type canvas_item;
+
+uniform vec4 fill_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float fill_amount : hint_range(0.0, 1.0) = 1.0; 
+// 0 = original texture, 1 = fully filled
+
+void fragment() {
+    vec4 tex = texture(TEXTURE, UV);
+
+    // Blend texture -> solid fill
+    vec3 rgb = mix(tex.rgb, fill_color.rgb, fill_amount);
+
+    // Keep original sprite shape / transparency
+    COLOR = vec4(rgb, tex.a);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o0dha"]
+shader = SubResource("Shader_6hdtm")
+shader_parameter/fill_color = Color(1, 1, 1, 1)
+shader_parameter/fill_amount = 0.0
+
+[sub_resource type="Shader" id="Shader_ie221"]
+code = "shader_type canvas_item;
+
+uniform vec4 fill_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float fill_amount : hint_range(0.0, 1.0) = 1.0; 
+// 0 = original texture, 1 = fully filled
+
+void fragment() {
+    vec4 tex = texture(TEXTURE, UV);
+
+    // Blend texture -> solid fill
+    vec3 rgb = mix(tex.rgb, fill_color.rgb, fill_amount);
+
+    // Keep original sprite shape / transparency
+    COLOR = vec4(rgb, tex.a);
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hqi5w"]
+shader = SubResource("Shader_ie221")
+shader_parameter/fill_color = Color(1, 1, 1, 1)
+shader_parameter/fill_amount = 0.0
+
+[node name="Goomba" type="RigidBody2D" unique_id=1711544697]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_ncopc")
+metadata/_edit_horizontal_guides_ = [58.857468]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2091521995]
+position = Vector2(2.59375, -59.65625)
+shape = SubResource("CircleShape2D_kowhd")
+
+[node name="Goomba" type="Node2D" parent="." unique_id=1649988251]
+
+[node name="Sprites" type="Node2D" parent="Goomba" unique_id=2061517372]
+scale = Vector2(0.6, 0.6)
+script = ExtResource("2_wsxqa")
+
+[node name="Body" type="Sprite2D" parent="Goomba/Sprites" unique_id=693800573]
+material = SubResource("ShaderMaterial_k7bdq")
+texture = ExtResource("3_unffs")
+
+[node name="FootL" type="Sprite2D" parent="Goomba/Sprites" unique_id=1027235825]
+material = SubResource("ShaderMaterial_0ipta")
+position = Vector2(-83.5, 56.5)
+texture = ExtResource("4_mwn0r")
+
+[node name="FootR" type="Sprite2D" parent="Goomba/Sprites" unique_id=588887354]
+material = SubResource("ShaderMaterial_o0dha")
+position = Vector2(83.5, 56.5)
+texture = ExtResource("5_xwwnh")
+
+[node name="Head" type="Sprite2D" parent="Goomba/Sprites" unique_id=1718031874]
+material = SubResource("ShaderMaterial_hqi5w")
+position = Vector2(0, -48.772)
+texture = ExtResource("6_dydqt")
+offset = Vector2(0, -113.818)
+
+[node name="Lifetime" type="Timer" parent="." unique_id=1779768866]
+
+[connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]
