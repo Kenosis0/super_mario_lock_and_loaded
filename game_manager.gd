@@ -1,7 +1,39 @@
 extends Node
 
+var game_timer: TimerUI
+var notification_ui: NotificationUI
+var score_label: Label
 var score: int = 0
+var goal_score: int = 3750
 
-func add_score(label: Label, amount: int) -> void:
-	score += amount
-	label.text = "%06d" % score
+var goal_reached: bool = false
+var timer_finished: bool = false
+
+
+func _ready() -> void:
+	set_process_mode(Node.PROCESS_MODE_ALWAYS)
+
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("pause"):
+		if not get_tree().is_paused():
+			print("pausing")
+			get_tree().set_pause(true)
+		else:
+			print("playing")
+			get_tree().set_pause(false)
+
+
+func add_score(amount: int) -> void:
+	if score_label:
+		score += amount
+		score_label.text = "%06d" % score
+	
+	if score >= goal_score:
+		if game_timer:
+			game_timer.pause()
+		if notification_ui:
+			notification_ui.label_notification.text = notification_ui.win_text
+			notification_ui.show()
+			get_tree().set_pause(true)
+		goal_reached = true

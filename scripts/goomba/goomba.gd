@@ -8,6 +8,7 @@ const SCORE_POP = preload("uid://b2smavig5utf8")
 
 
 @export var health: int = 3
+@export var score_collected: int = 250
 
 @export var gravity_weight: float = 5000
 
@@ -50,8 +51,8 @@ func apply_knockback(from_global_pos: Vector2, amount: float = -1.0) -> void:
 
 func die() -> void:
 	var score: ScorePop = SCORE_POP.instantiate()
-	score.score = 5
-	GameManager.add_score($"../CanvasLayer/MarginContainer/Score", 5)
+	score.score = score_collected
+	GameManager.add_score(score_collected)
 	get_tree().current_scene.add_child(score)
 	score.global_position = self.global_position + Vector2(0, -50)
 	

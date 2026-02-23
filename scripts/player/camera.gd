@@ -40,7 +40,7 @@ func _process(delta: float) -> void:
 	# Smooth Y toward desired_y, lock X to player
 	var t := 1.0 - exp(-follow_speed * delta)
 	global_position.x = lerp(global_position.x, desired_x, t)
-	global_position.y = lerp(global_position.y, desired_y, t)
+	#global_position.y = lerp(global_position.y, desired_y, t)
 	
 #extends Camera2D
 #

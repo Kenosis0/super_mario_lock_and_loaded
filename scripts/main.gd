@@ -1,11 +1,10 @@
 extends Node2D
 
+@export var score_label: Label
 
 
 func _ready() -> void:
-	return
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-
+	GameManager.score_label = score_label
 
 func _process(delta: float) -> void:
 	pass
@@ -56,3 +55,8 @@ func fold_to_front_half(a: float) -> float:
 	elif a < -PI * 0.5:
 		a = -PI - a
 	return a
+
+
+func _on_timer_ui_finished() -> void:
+	GameManager.notification_ui.label_notification.text = GameManager.notification_ui.lose_text
+	GameManager.notification_ui.show()
