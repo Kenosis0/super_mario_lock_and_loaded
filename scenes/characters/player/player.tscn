@@ -14,13 +14,13 @@
 [ext_resource type="Texture2D" uid="uid://momxbarqoh2h" path="res://assets/MarioSlingShooter/HandR.png" id="12_u6wme"]
 [ext_resource type="Texture2D" uid="uid://da17i6spd785n" path="res://assets/MarioSlingShooter/LoArmR.png" id="13_bxwvg"]
 [ext_resource type="Texture2D" uid="uid://uq8hon0vr8f0" path="res://assets/MarioSlingShooter/UpArmR.png" id="14_2v4cy"]
-[ext_resource type="AnimationLibrary" uid="uid://bkp8rgpfpjjlt" path="res://assets/animation/MarioShooter.res" id="15_i1nod"]
-[ext_resource type="SkeletonModificationStack2D" uid="uid://boii1ip8fqy52" path="res://assets/MainSkeleIK.tres" id="15_tebod"]
+[ext_resource type="AnimationLibrary" uid="uid://bkp8rgpfpjjlt" path="res://resources/animation/MarioShooter.res" id="15_i1nod"]
+[ext_resource type="SkeletonModificationStack2D" uid="uid://boii1ip8fqy52" path="res://resources/MainSkeleIK.tres" id="15_tebod"]
 [ext_resource type="Shader" uid="uid://bstsyp77p4yi3" path="res://scripts/player/player.gdshader" id="15_ykrpk"]
 [ext_resource type="Script" uid="uid://vc7kpen1vsv5" path="res://scripts/player/camera.gd" id="17_8y75b"]
 [ext_resource type="Script" uid="uid://c0w7xs4lbmyn8" path="res://scripts/test.gd" id="18_svuau"]
 [ext_resource type="Script" uid="uid://tvj120fgqh82" path="res://scripts/player/bones/bone_ik.gd" id="19_8y75b"]
-[ext_resource type="AnimationNodeBlendTree" uid="uid://bk7w8gi587ey" path="res://assets/animation/MarioAnimationTree.tres" id="19_ro20i"]
+[ext_resource type="AnimationNodeBlendTree" uid="uid://bk7w8gi587ey" path="res://resources/animation/MarioAnimationTree.tres" id="19_ro20i"]
 [ext_resource type="Script" uid="uid://cbhqwv2liekx2" path="res://scripts/player/rock_spawn_point.gd" id="22_6nfx3"]
 [ext_resource type="Texture2D" uid="uid://0fraas6jb43p" path="res://assets/BrokenLines.png" id="23_3hnlq"]
 [ext_resource type="Shader" uid="uid://cokdyj1ikil8k" path="res://resources/trajectory_line.gdshader" id="23_d73qs"]
@@ -1075,7 +1075,7 @@ position = Vector2(519.25385, 598.73114)
 scale = Vector2(0.9999974, 0.9999974)
 
 [node name="Head" type="Sprite2D" parent="Render/SubViewport/Sprites" unique_id=1821395704]
-position = Vector2(-7.4959717, -125.299225)
+position = Vector2(-7.4959717, -124.83798)
 rotation = -0.011703928
 scale = Vector2(0.99987787, 0.99987787)
 texture = ExtResource("1_hv5x3")
@@ -1087,9 +1087,9 @@ offset = Vector2(37.063892, -115.897736)
 position = Vector2(-0.8973694, -66.735535)
 
 [node name="HandL" type="Sprite2D" parent="Render/SubViewport/Sprites/ArmL" unique_id=780959891]
-position = Vector2(110.64758, 243.70392)
-rotation = -0.55775195
-scale = Vector2(0.9996884, 0.9996884)
+position = Vector2(110.656494, 244.17712)
+rotation = -0.5577517
+scale = Vector2(0.999789, 0.999789)
 texture = ExtResource("2_ykrpk")
 offset = Vector2(14.174126, 28.681366)
 
@@ -1109,18 +1109,18 @@ polygons = [PackedInt32Array(6, 7, 8), PackedInt32Array(2, 5, 9), PackedInt32Arr
 internal_vertex_count = 7
 
 [node name="LoArmL" type="Sprite2D" parent="Render/SubViewport/Sprites/ArmL" unique_id=48622874]
-position = Vector2(21.833862, 125.65515)
-rotation = -0.39591345
-scale = Vector2(0.9996885, 0.9996885)
+position = Vector2(21.833923, 126.116455)
+rotation = -0.39591318
+scale = Vector2(0.9997892, 0.9997892)
 texture = ExtResource("3_i1nod")
 offset = Vector2(17.510612, 69.44067)
 
 [node name="Marker2D" type="Marker2D" parent="Render/SubViewport/Sprites/ArmL/LoArmL" unique_id=73531080]
 
 [node name="UpArmL" type="Sprite2D" parent="Render/SubViewport/Sprites/ArmL" unique_id=1608495272]
-position = Vector2(-6.301758, -6.270935)
-rotation = -0.17797606
-scale = Vector2(0.9998384, 0.9998384)
+position = Vector2(-6.301697, -5.8095703)
+rotation = -0.17797582
+scale = Vector2(0.9998383, 0.9998383)
 texture = ExtResource("4_4kqyw")
 offset = Vector2(1.75, 67.265625)
 
@@ -1142,9 +1142,9 @@ internal_vertex_count = 323
 position = Vector2(5.020569, 212.37408)
 
 [node name="UpLegL" type="Sprite2D" parent="Render/SubViewport/Sprites/LegL" unique_id=1608420368]
-position = Vector2(2.2780151, 3.5275269)
-rotation = -0.70443594
-scale = Vector2(0.9998854, 0.9998854)
+position = Vector2(2.2780151, 3.9887695)
+rotation = -0.7094686
+scale = Vector2(0.99995565, 0.99995565)
 texture = ExtResource("6_ro20i")
 offset = Vector2(0.4803629, 72.63057)
 
@@ -1164,7 +1164,7 @@ internal_vertex_count = 84
 [node name="Marker2D2" type="Marker2D" parent="Render/SubViewport/Sprites/LegL/ShinL" unique_id=1477784878]
 
 [node name="Hip" type="Sprite2D" parent="Render/SubViewport/Sprites" unique_id=191255987]
-position = Vector2(-1.2538452, 166.72467)
+position = Vector2(-1.2538452, 167.18591)
 scale = Vector2(1.0000026, 1.0000026)
 texture = ExtResource("8_tebod")
 offset = Vector2(0, 52.316)
@@ -1175,9 +1175,9 @@ offset = Vector2(0, 52.316)
 position = Vector2(-13.808411, 221.32092)
 
 [node name="UpLegR" type="Sprite2D" parent="Render/SubViewport/Sprites/LegR" unique_id=1657177333]
-position = Vector2(2.5545044, 4.0996704)
-rotation = -0.086883485
-scale = Vector2(0.99987626, 0.99987626)
+position = Vector2(2.5545044, 4.560913)
+rotation = -0.094349995
+scale = Vector2(0.99987745, 0.99987745)
 texture = ExtResource("9_6nfx3")
 offset = Vector2(-0.62091064, 72.03186)
 
@@ -1201,7 +1201,7 @@ position = Vector2(0.8460388, 0)
 position = Vector2(-17.43872, 170.3703)
 
 [node name="Belt" type="Sprite2D" parent="Render/SubViewport/Sprites" unique_id=603536937]
-position = Vector2(-1.2538452, 166.72467)
+position = Vector2(-1.2538452, 167.18591)
 scale = Vector2(1.0000026, 1.0000026)
 texture = ExtResource("11_d73qs")
 offset = Vector2(3, 19.5)
@@ -1210,25 +1210,25 @@ offset = Vector2(3, 19.5)
 position = Vector2(-34.90909, -48.90909)
 
 [node name="UpArmR" type="Sprite2D" parent="Render/SubViewport/Sprites/ArmR" unique_id=461348569]
-position = Vector2(-5.774231, -5.3967285)
-rotation = 0.18571937
+position = Vector2(-5.773926, -4.9352417)
+rotation = 0.18572046
 scale = Vector2(1.0016221, 1.0016221)
 texture = ExtResource("14_2v4cy")
 offset = Vector2(-14.734375, 61.476563)
 
 [node name="LoArmR" type="Sprite2D" parent="Render/SubViewport/Sprites/ArmR" unique_id=1571298702]
-position = Vector2(-61.53485, 114.36694)
-rotation = -0.10049205
-scale = Vector2(1.0025386, 1.0025386)
+position = Vector2(-61.534668, 114.82837)
+rotation = -0.100491
+scale = Vector2(1.0025373, 1.0025373)
 texture = ExtResource("13_bxwvg")
 offset = Vector2(-3.4603348, 71.8647)
 
 [node name="Marker2D" type="Marker2D" parent="Render/SubViewport/Sprites/ArmR/LoArmR" unique_id=223041339]
 
 [node name="HandR" type="Sprite2D" parent="Render/SubViewport/Sprites/ArmR" unique_id=1970332231]
-position = Vector2(-52.670593, 262.29584)
-rotation = -0.10049205
-scale = Vector2(1.0023932, 1.0023932)
+position = Vector2(-52.670563, 262.75708)
+rotation = -0.100491
+scale = Vector2(1.002392, 1.002392)
 texture = ExtResource("12_u6wme")
 offset = Vector2(1.570343, 32.049316)
 
@@ -1273,7 +1273,7 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="LoArmR" type="Bone2D" parent="Render/SubViewport/Skeleton/Hip/Spine/Torso/UpArmR" unique_id=1265513412]
 position = Vector2(-32.630737, 127.798706)
-scale = Vector2(1.0009149, 1.0009149)
+scale = Vector2(1.0009136, 1.0009136)
 rest = Transform2D(1.0008452, 0, 0, 1.0008452, -32.635406, 127.791565)
 metadata/_local_pose_override_enabled_ = true
 
@@ -1513,7 +1513,7 @@ traj_steps = 1000
 [node name="TrajectoryLine" type="Line2D" parent="RockSpawnPoint" unique_id=230551453]
 texture_repeat = 2
 material = SubResource("ShaderMaterial_u6wme")
-points = PackedVector2Array(954.0017, 229.86316, 1568.1045, 104.87033, 1840.6145, 479.95184)
+points = PackedVector2Array(287.97485, -65.33873, 695.9911, -105.253136, 1105.4962, 0.93029785, 1476.6991, 196.10675, 1848.0227, 526.0206)
 width = 150.0
 width_curve = SubResource("Curve_d73qs")
 texture = ExtResource("23_3hnlq")

@@ -1,7 +1,5 @@
 extends Camera2D
-
 @export var player: Node2D
-
 @export var follow_speed: float = 10.0      # higher = snappier
 @export var max_vertical_offset: float = 250.0  # clamp above/below player (world units)
 @export var max_horizontal_offset: float = 250.0

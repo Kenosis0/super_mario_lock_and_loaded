@@ -11,6 +11,7 @@ var first_play: bool = false
 
 
 func _ready() -> void:
+	show()
 	GameManager.notification_ui = self
 	get_tree().set_pause(true)
 
