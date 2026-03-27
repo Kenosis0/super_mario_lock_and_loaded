@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c60xtul8n4jof" path="res://scripts/main.gd" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://dqo6vvy0pcixm" path="res://scenes/characters/player/player.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://dvccfyr1ojfgl" path="res://scenes/levels/level1.tscn" id="2_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://1ve2o5wfm3uo" path="res://scenes/collectible/coin.tscn" id="5_85g3d"]
 [ext_resource type="PackedScene" uid="uid://j8helgs1nrin" path="res://scenes/characters/goomba/goomba.tscn" id="5_tbgi4"]
 [ext_resource type="Script" uid="uid://cvoeb7xkc4fvq" path="res://scripts/gui/pause_menu.gd" id="6_tefeu"]
 [ext_resource type="Script" uid="uid://b4rxj8eqqqlth" path="res://scripts/gui/notification.gd" id="7_o6xl0"]
@@ -35,6 +36,18 @@ script = ExtResource("1_sugp2")
 score_label = NodePath("CanvasLayer/MarginContainer/Score")
 
 [node name="Level1" parent="." unique_id=1742047847 instance=ExtResource("2_tbgi4")]
+
+[node name="Parallax2D" parent="Level1/ParallaxBackground" parent_id_path=PackedInt32Array(1742047847, 1948787298) index="0" unique_id=1253296289]
+repeat_times = 10
+
+[node name="Cloud1" parent="Level1/ParallaxBackground" parent_id_path=PackedInt32Array(1742047847, 1948787298) index="1" unique_id=883859386]
+repeat_times = 8
+
+[node name="Cloud2" parent="Level1/ParallaxBackground" parent_id_path=PackedInt32Array(1742047847, 1948787298) index="2" unique_id=1632779030]
+repeat_times = 8
+
+[node name="Cloud3" parent="Level1/ParallaxBackground" parent_id_path=PackedInt32Array(1742047847, 1948787298) index="3" unique_id=863741808]
+repeat_times = 8
 
 [node name="Player2" parent="." unique_id=1182183939 instance=ExtResource("2_0wfyh")]
 position = Vector2(-15490.461, 1734.8118)
@@ -113,6 +126,68 @@ position = Vector2(4700.949, 2494.016)
 [node name="Goomba24" parent="Enemy" unique_id=1304551398 instance=ExtResource("5_tbgi4")]
 position = Vector2(11795.157, 1730.6152)
 
+[node name="Collectibles" type="Node2D" parent="." unique_id=363313775]
+
+[node name="Coin" parent="Collectibles" unique_id=1745149304 instance=ExtResource("5_85g3d")]
+position = Vector2(-1444.2549, 2285.1094)
+
+[node name="Coin2" parent="Collectibles" unique_id=558309890 instance=ExtResource("5_85g3d")]
+position = Vector2(-1217.9663, 2285.1094)
+
+[node name="Coin3" parent="Collectibles" unique_id=394363013 instance=ExtResource("5_85g3d")]
+position = Vector2(-991.6775, 2285.1094)
+
+[node name="Coin4" parent="Collectibles" unique_id=71010773 instance=ExtResource("5_85g3d")]
+position = Vector2(-753.15674, 2285.1094)
+
+[node name="Coin5" parent="Collectibles" unique_id=520683179 instance=ExtResource("5_85g3d")]
+position = Vector2(-508.52026, 2278.9934)
+
+[node name="Coin6" parent="Collectibles" unique_id=339366136 instance=ExtResource("5_85g3d")]
+position = Vector2(-11458.625, 2867.695)
+
+[node name="Coin7" parent="Collectibles" unique_id=1935137201 instance=ExtResource("5_85g3d")]
+position = Vector2(-11232.336, 2867.695)
+
+[node name="Coin8" parent="Collectibles" unique_id=206339360 instance=ExtResource("5_85g3d")]
+position = Vector2(-11006.048, 2867.695)
+
+[node name="Coin9" parent="Collectibles" unique_id=1764678779 instance=ExtResource("5_85g3d")]
+position = Vector2(-10767.527, 2867.695)
+
+[node name="Coin10" parent="Collectibles" unique_id=865805765 instance=ExtResource("5_85g3d")]
+position = Vector2(-10522.891, 2861.579)
+
+[node name="Coin11" parent="Collectibles" unique_id=2060939786 instance=ExtResource("5_85g3d")]
+position = Vector2(-13340.919, 1730.9578)
+
+[node name="Coin12" parent="Collectibles" unique_id=854444174 instance=ExtResource("5_85g3d")]
+position = Vector2(-13023.615, 1730.9578)
+
+[node name="Coin13" parent="Collectibles" unique_id=2089533927 instance=ExtResource("5_85g3d")]
+position = Vector2(-12681.205, 1730.9578)
+
+[node name="Coin14" parent="Collectibles" unique_id=1773056147 instance=ExtResource("5_85g3d")]
+position = Vector2(-12309.013, 1730.9578)
+
+[node name="Coin15" parent="Collectibles" unique_id=472415248 instance=ExtResource("5_85g3d")]
+position = Vector2(-11955.768, 1724.8418)
+
+[node name="Coin16" parent="Collectibles" unique_id=110378185 instance=ExtResource("5_85g3d")]
+position = Vector2(-18640.166, 1359.6111)
+
+[node name="Coin17" parent="Collectibles" unique_id=1190889835 instance=ExtResource("5_85g3d")]
+position = Vector2(-18413.877, 1359.6111)
+
+[node name="Coin18" parent="Collectibles" unique_id=60209550 instance=ExtResource("5_85g3d")]
+position = Vector2(-18187.59, 1359.6111)
+
+[node name="Coin19" parent="Collectibles" unique_id=358905631 instance=ExtResource("5_85g3d")]
+position = Vector2(-17949.068, 1359.6111)
+
+[node name="Coin20" parent="Collectibles" unique_id=1504113196 instance=ExtResource("5_85g3d")]
+position = Vector2(-17704.432, 1353.4951)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1918231583]
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=175348651]
@@ -190,3 +265,5 @@ vertical_alignment = 1
 
 [connection signal="finished" from="CanvasLayer/TimerUI" to="." method="_on_timer_ui_finished"]
 [connection signal="gui_input" from="CanvasLayer/Notification" to="CanvasLayer/Notification" method="_on_gui_input"]
+
+[editable path="Level1"]

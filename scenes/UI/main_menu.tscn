@@ -1,0 +1,174 @@
+[gd_scene format=3 uid="uid://duv88jyfexlov"]
+
+[ext_resource type="Texture2D" uid="uid://d2vjk46c4vvth" path="res://assets/background/TitleScreenBackground.jpg" id="1_bg"]
+[ext_resource type="FontFile" uid="uid://x6manew3u23n" path="res://assets/fonts/Melon Pop.ttf" id="2_font"]
+[ext_resource type="Script" uid="uid://cpgs4b584uulv" path="res://scripts/gui/main_menu.gd" id="3_script"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font = ExtResource("2_font")
+font_size = 100
+font_color = Color(1, 0.88, 0.1, 1)
+outline_size = 10
+outline_color = Color(0.6, 0.1, 0, 1)
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 0.6)
+shadow_offset = Vector2(5, 6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_normal"]
+content_margin_left = 60.0
+content_margin_top = 14.0
+content_margin_right = 60.0
+content_margin_bottom = 14.0
+bg_color = Color(0.82, 0.16, 0.05, 0.92)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 0.85, 0, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0, 0, 0, 0.45)
+shadow_size = 5
+shadow_offset = Vector2(3, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pressed"]
+content_margin_left = 60.0
+content_margin_top = 16.0
+content_margin_right = 60.0
+content_margin_bottom = 12.0
+bg_color = Color(0.55, 0.1, 0.02, 0.95)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.85, 0.65, 0, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hover"]
+content_margin_left = 60.0
+content_margin_top = 14.0
+content_margin_right = 60.0
+content_margin_bottom = 14.0
+bg_color = Color(0.95, 0.28, 0.1, 0.95)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 0.4, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0, 0, 0, 0.55)
+shadow_size = 8
+shadow_offset = Vector2(3, 4)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_focus"]
+
+[node name="MainMenu" type="Control" unique_id=2036902278]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_script")
+
+[node name="Background" type="TextureRect" parent="." unique_id=967818088]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_bg")
+stretch_mode = 5
+
+[node name="DarkOverlay" type="ColorRect" parent="." unique_id=960239690]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.35)
+
+[node name="Content" type="VBoxContainer" parent="." unique_id=409096979]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -280.0
+offset_right = 450.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Title" type="Label" parent="Content" unique_id=1131682974]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Super Mario:
+Lock and Loaded"
+label_settings = SubResource("LabelSettings_title")
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="Content" unique_id=670562022]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="Content" unique_id=513193564]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.9, 0.85, 0.7, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.9, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hover")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_focus")
+text = "PLAY"
+
+[node name="ExitButton" type="Button" parent="Content" unique_id=1069350146]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.9, 0.85, 0.7, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 0.9, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hover")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_focus")
+text = "EXIT"
+
+[node name="FadeRect" type="ColorRect" parent="." unique_id=1311759593]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="Content/PlayButton" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Content/ExitButton" to="." method="_on_exit_pressed"]
