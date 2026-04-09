@@ -29,12 +29,19 @@ const ROCK = preload("uid://lkxpxt25v0y")
 @export var air_sprint_decel := 3000.0
 @export var air_walk_turn_accel := 7000.0
 @export var air_sprint_turn_accel := 8000.0
+@export var knockback_force := 1200.0
+@export var knockback_decay := 2200.0
+@export var knockback_control_lock_time := 0.2
+@export var hit_jump_velocity := 650.0
 
 var input_x := 0.0
 var face_dir: Vector2 = Vector2.RIGHT
 var jump_alpha := 0.0 # 0..1..0
 var can_jump: bool = false
 var using_sling: bool = false
+var controlled_velocity: Vector2 = Vector2.ZERO
+var kb: Knockback
+var knockback_control_lock_left := 0.0
 #var is_falling: bool = false
 
 
@@ -55,12 +62,16 @@ var limb_count: float = limb_timer
 
 
 func _ready() -> void:
+	kb = Knockback.new(knockback_force, knockback_decay)
 	print("player viewport: ", get_viewport().get_instance_id())
 	var rock = get_node(rock_spawn_point)
 	print("muzzle viewport: ", rock.get_viewport().get_instance_id())
 
 
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(_event: InputEvent) -> void:
+	if _is_control_locked():
+		return
+
 	if using_sling:
 		if Input.is_action_pressed("fire") and firing == false:
 			using_sling = true
@@ -124,13 +135,18 @@ func _process(delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	input_x = Input.get_axis("left", "right")
+	kb.update(delta)
+	if knockback_control_lock_left > 0.0:
+		knockback_control_lock_left = max(knockback_control_lock_left - delta, 0.0)
+
+	var control_locked := _is_control_locked()
+	input_x = 0.0 if control_locked else Input.get_axis("left", "right")
 	
 	if input_x != 0.0:
 		face_dir = Vector2(input_x, 0.0)
 	
 	var want_move = abs(input_x) > 0.001
-	var want_sprint = Input.is_action_pressed("sprint") and want_move
+	var want_sprint = Input.is_action_pressed("sprint") and want_move and not control_locked
 	var grounded := is_on_floor()
 
 	# flip
@@ -139,37 +155,46 @@ func _physics_process(delta: float) -> void:
 
 	# gravity
 	if not grounded:
-		velocity.y += gravity_weight * delta
-		velocity.y = min(velocity.y, gravity_weight)
+		controlled_velocity.y += gravity_weight * delta
+		controlled_velocity.y = min(controlled_velocity.y, gravity_weight)
 		var takeoff = max(1.0, abs(jump_velocity))
-		var t = abs(velocity.y) / takeoff   # 0..inf
-		t = t / (1.0 + t)                    # 0..1 smoothly
-		jump_alpha = 1.0 - smoothstep(0.0, 1.0, t)
+		var jump_t = abs(controlled_velocity.y) / takeoff   # 0..inf
+		jump_t = jump_t / (1.0 + jump_t)                    # 0..1 smoothly
+		jump_alpha = 1.0 - smoothstep(0.0, 1.0, jump_t)
 	else:
-		if velocity.y > 0.0:
-			velocity.y = 0.0
+		if controlled_velocity.y > 0.0:
+			controlled_velocity.y = 0.0
 		jump_alpha = 0.0
 		
-		if Input.is_action_just_pressed("jump"):
+		if Input.is_action_just_pressed("jump") and not control_locked:
 			jump()
 	
 	# speed + rates
-	var max_speed := sprint_speed if want_sprint else walk_speed
+	var move_max_speed := sprint_speed if want_sprint else walk_speed
 
 	var a := (air_sprint_accel if want_sprint else air_walk_accel) if not grounded else (sprint_accel if want_sprint else walk_accel)
 	var d := (air_sprint_decel if want_sprint else air_walk_decel) if not grounded else (sprint_decel if want_sprint else walk_decel)
-	var t := (air_sprint_turn_accel if want_sprint else air_walk_turn_accel) if not grounded else (sprint_turn_accel if want_sprint else walk_turn_accel)
+	var turn_accel := (air_sprint_turn_accel if want_sprint else air_walk_turn_accel) if not grounded else (sprint_turn_accel if want_sprint else walk_turn_accel)
 
-	var target_speed := input_x * max_speed
+	var target_speed := input_x * move_max_speed
 
 	if want_move:
-		var reversing = (velocity.x != 0.0) and (sign(target_speed) != sign(velocity.x))
-		var rate := t if reversing else a
-		velocity.x = move_toward(velocity.x, target_speed, rate * delta)
+		var reversing = (controlled_velocity.x != 0.0) and (sign(target_speed) != sign(controlled_velocity.x))
+		var rate := turn_accel if reversing else a
+		controlled_velocity.x = move_toward(controlled_velocity.x, target_speed, rate * delta)
 	else:
-		velocity.x = move_toward(velocity.x, 0.0, d * delta)
+		controlled_velocity.x = move_toward(controlled_velocity.x, 0.0, d * delta)
+
+	velocity = kb.add_to(controlled_velocity)
 
 	move_and_slide()
+
+	# Keep controller velocity independent from collision-resolved knockback velocity.
+	# This avoids rebound-like feedback when colliding with floor or walls.
+	if is_on_floor() and controlled_velocity.y > 0.0:
+		controlled_velocity.y = 0.0
+	elif is_on_ceiling() and controlled_velocity.y < 0.0:
+		controlled_velocity.y = 0.0
 	
 	## ----------------------------
 	## jump_alpha: smooth 0 -> 1 -> 0 based on vertical speed
@@ -181,7 +206,7 @@ func _physics_process(delta: float) -> void:
 	## ----------------------------
 	
 	# animation
-	var ratio = clamp(abs(velocity.x) / max_speed, 0.0, 1.0)
+	var ratio = clamp(abs(velocity.x) / move_max_speed, 0.0, 1.0)
 	anim_tree.set("parameters/IdleMove/blend_amount", float(ratio))
 	anim_tree.set("parameters/WalkSprint/blend_amount", float(want_sprint))
 	anim_tree.set("parameters/JumpApex/blend_amount", jump_alpha)
@@ -191,10 +216,43 @@ func _physics_process(delta: float) -> void:
 
 
 func jump() -> void:
-	velocity.y -= jump_velocity
+	controlled_velocity.y -= jump_velocity
 
 
-func fire(power: float, _owner: Node2D) -> void:
+func apply_hit(from_global_pos: Vector2, amount: float = -1.0) -> void:
+	if kb == null:
+		kb = Knockback.new(knockback_force, knockback_decay)
+
+	var knock_dir := global_position - from_global_pos
+	if knock_dir == Vector2.ZERO:
+		knock_dir = Vector2(-1.0, 0.0)
+	knock_dir.y = 0.0
+	kb.apply_dir(knock_dir, amount)
+
+	if is_on_floor():
+		controlled_velocity.y = -abs(hit_jump_velocity)
+
+	knockback_control_lock_left = max(knockback_control_lock_left, knockback_control_lock_time)
+	_cancel_sling_state()
+
+
+func apply_knockback(from_global_pos: Vector2, amount: float = -1.0) -> void:
+	apply_hit(from_global_pos, amount)
+
+
+func _is_control_locked() -> bool:
+	return knockback_control_lock_left > 0.0 or kb.is_active()
+
+
+func _cancel_sling_state() -> void:
+	if using_sling:
+		using_sling = false
+		limb_control_component.enable_look_at_cursor(true)
+	handr_distance_ratio = 1.0
+	firing = false
+
+
+func fire(shot_power: float, _owner: Node2D) -> void:
 	var mouse_world := get_mouse_world()
 	var rock_spawn = get_node(rock_spawn_point)
 
@@ -202,9 +260,9 @@ func fire(power: float, _owner: Node2D) -> void:
 	get_tree().current_scene.add_child(b)
 
 	b.global_position = rock_spawn.global_position
-	var v0 = compute_v0(b.global_position, mouse_world, power)
+	var v0 = compute_v0(b.global_position, mouse_world, shot_power)
 	
-	print("power=", power)
+	print("power=", shot_power)
 	print("v0_len=", v0.length())
 	b.launch(v0, _owner)
 
@@ -213,9 +271,9 @@ func fire(power: float, _owner: Node2D) -> void:
 @export var min_speed: float = 600.0     # speed at power = 0
 @export var max_speed: float = 1800.0    # speed at power = 100 (or raise this)
 
-func compute_v0(origin: Vector2, target: Vector2, power: float) -> Vector2:
+func compute_v0(origin: Vector2, target: Vector2, shot_power: float) -> Vector2:
 	var dir := (target - origin).normalized()
-	var t = clamp(power / power_max, 0.0, 1.0)  # normalize 0..100 -> 0..1
+	var t = clamp(shot_power / power_max, 0.0, 1.0)  # normalize 0..100 -> 0..1
 	var speed = lerp(min_speed, max_speed, t)
 	return dir * speed
 

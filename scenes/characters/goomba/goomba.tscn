@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://e2n5d2ce4fnv" path="res://assets/enemy/FootL.png" id="2_ie221"]
 [ext_resource type="Texture2D" uid="uid://cjfdgojs2r716" path="res://assets/enemy/FootR.png" id="3_hqi5w"]
 [ext_resource type="Texture2D" uid="uid://bo6jhhdq5hs3f" path="res://assets/enemy/Head.png" id="4_k7bdq"]
+[ext_resource type="PackedScene" uid="uid://dxqibfxda0beg" path="res://scenes/juice/smoke_vfx.tscn" id="7_k7bdq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kowhd"]
 radius = 114.79232
@@ -73,28 +74,6 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o0dha"]
 shader = SubResource("Shader_6hdtm")
-shader_parameter/fill_color = Color(1, 1, 1, 1)
-shader_parameter/fill_amount = 0.0
-
-[sub_resource type="Shader" id="Shader_ie221"]
-code = "shader_type canvas_item;
-
-uniform vec4 fill_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
-uniform float fill_amount : hint_range(0.0, 1.0) = 1.0; 
-// 0 = original texture, 1 = fully filled
-
-void fragment() {
-    vec4 tex = texture(TEXTURE, UV);
-
-    // Blend texture -> solid fill
-    vec3 rgb = mix(tex.rgb, fill_color.rgb, fill_amount);
-
-    // Keep original sprite shape / transparency
-    COLOR = vec4(rgb, tex.a);
-}"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hqi5w"]
-shader = SubResource("Shader_ie221")
 shader_parameter/fill_color = Color(1, 1, 1, 1)
 shader_parameter/fill_amount = 0.0
 
@@ -304,141 +283,176 @@ tracks/16/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("SmokeSpawnPos/SmokeVFX:emitting")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("SmokeSpawnPos/SmokeVFX2:emitting")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("SmokeSpawnPos/SmokeVFX3:emitting")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
-[sub_resource type="Animation" id="Animation_k7bdq"]
-resource_name = "enemy_detected"
-length = 0.3
+[sub_resource type="Animation" id="Animation_0ipta"]
+resource_name = "cooldown"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Goomba/Sprites/Head:position")
+tracks/0/path = NodePath("Goomba/Sprites/Head:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.10000001, 0.20000002, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, -48.772064), Vector2(0, -74.64377), Vector2(0, -113.67365), Vector2(0, -48.772064)]
+"values": [0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Goomba/Sprites/Head:rotation")
+tracks/1/path = NodePath("Goomba/Sprites/Body:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.10000001, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0, 0.0, 0.0]
+"values": [0.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Goomba/Sprites/Body:position")
+tracks/2/path = NodePath("Goomba/Sprites/Head:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.10000001, 0.20000002, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, -25.871708), Vector2(0, -64.90159), Vector2(0, 0)]
+"values": [Vector2(0, -48.77206)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Goomba/Sprites/Body:rotation")
+tracks/3/path = NodePath("Goomba/Sprites/Body:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.10000001, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0, 0.0, 0.0]
+"values": [Vector2(0, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Goomba/Sprites/FootL:position")
+tracks/4/path = NodePath("Goomba/Sprites/Head:scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.10000001, 0.20000002, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.36666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(-83.5, 56.5), Vector2(-83.5, 30.628292), Vector2(-83.5, -8.401585), Vector2(-83.5, 56.5)]
+"values": [Vector2(1, 1), Vector2(1.0553758, 1.1077663), Vector2(1, 1)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Goomba/Sprites/FootL:rotation")
+tracks/5/path = NodePath("Goomba/Sprites/FootR:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.10000001, 0.2, 0.23333335, 0.26666668, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0.311892),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0, -0.8246085, 0.0, 0.2617994, 0.3926991, 0.0]
+"values": [Vector2(83.5, 56.5)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Goomba/Sprites/FootR:position")
+tracks/6/path = NodePath("Goomba/Sprites/FootR:rotation")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.10000001, 0.20000002, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0.311892),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(83.5, 56.5), Vector2(83.5, 30.628292), Vector2(83.5, -8.401588), Vector2(83.5, 56.5)]
+"values": [0.0]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Goomba/Sprites/FootR:rotation")
+tracks/7/path = NodePath("Goomba/Sprites/FootR:scale")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.10000001, 0.2, 0.23333335, 0.26666668, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0.311892),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0, 0.7853982, 0.0, -0.2617994, -0.3926991, 0.0]
+"values": [Vector2(1, 1)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Goomba/Sprites/FootR:scale")
+tracks/8/path = NodePath("Goomba/Sprites/FootL:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.311892),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(-83.5, 56.5)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Goomba/Sprites/FootL:scale")
+tracks/9/path = NodePath("Goomba/Sprites/FootL:rotation")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.311892),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [0.0]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Goomba/Sprites/Head:scale")
+tracks/10/path = NodePath("Goomba/Sprites/FootL:scale")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0, 0.10000001, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0.311892),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1.1926185, 1.2289182), Vector2(1, 1)]
+"values": [Vector2(1, 1)]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
@@ -447,10 +461,195 @@ tracks/11/path = NodePath("Goomba/Sprites/Head:modulate")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.16666667, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+"values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_k7bdq"]
+resource_name = "enemy_detected"
+length = 0.9
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Goomba/Sprites/Head:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.20000002, 0.3, 0.4, 0.5, 0.6, 0.70000005, 0.8, 0.90000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -48.772064), Vector2(0, -74.64377), Vector2(0, -113.67365), Vector2(0, -48.772064), Vector2(0, -74.64377), Vector2(0, -113.67365), Vector2(0, -48.772064), Vector2(0, -74.64377), Vector2(0, -113.67365), Vector2(0, -48.772064)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Goomba/Sprites/Head:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.3, 0.4, 0.6, 0.70000005, 0.90000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Goomba/Sprites/Body:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.20000002, 0.3, 0.4, 0.5, 0.6, 0.70000005, 0.8, 0.90000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -25.871708), Vector2(0, -64.90159), Vector2(0, 0), Vector2(0, -25.871708), Vector2(0, -64.90159), Vector2(0, 0), Vector2(0, -25.871708), Vector2(0, -64.90159), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Goomba/Sprites/Body:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.3, 0.4, 0.6, 0.70000005, 0.90000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Goomba/Sprites/FootL:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.20000002, 0.3, 0.4, 0.5, 0.6, 0.70000005, 0.8, 0.90000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-83.5, 56.5), Vector2(-83.5, 30.628292), Vector2(-83.5, -8.401585), Vector2(-83.5, 56.5), Vector2(-83.5, 30.628292), Vector2(-83.5, -8.401585), Vector2(-83.5, 56.5), Vector2(-83.5, 30.628292), Vector2(-83.5, -8.401585), Vector2(-83.5, 56.5)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Goomba/Sprites/FootL:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.2, 0.23333335, 0.26666668, 0.3, 0.4, 0.5, 0.5333333, 0.5666667, 0.6, 0.70000005, 0.8, 0.8333333, 0.86666673, 0.90000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.8246085, 0.0, 0.2617994, 0.3926991, 0.0, -0.8246085, 0.0, 0.2617994, 0.3926991, 0.0, -0.8246085, 0.0, 0.2617994, 0.3926991, 0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Goomba/Sprites/FootR:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.20000002, 0.3, 0.4, 0.5, 0.6, 0.70000005, 0.8, 0.90000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(83.5, 56.5), Vector2(83.5, 30.628292), Vector2(83.5, -8.401588), Vector2(83.5, 56.5), Vector2(83.5, 30.628292), Vector2(83.5, -8.401588), Vector2(83.5, 56.5), Vector2(83.5, 30.628292), Vector2(83.5, -8.401588), Vector2(83.5, 56.5)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Goomba/Sprites/FootR:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.2, 0.23333335, 0.26666668, 0.3, 0.4, 0.5, 0.5333333, 0.5666667, 0.6, 0.70000005, 0.8, 0.8333333, 0.86666673, 0.90000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.7853982, 0.0, -0.2617994, -0.3926991, 0.0, 0.7853982, 0.0, -0.2617994, -0.3926991, 0.0, 0.7853982, 0.0, -0.2617994, -0.3926991, 0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Goomba/Sprites/FootR:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Goomba/Sprites/FootL:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Goomba/Sprites/Head:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.2, 0.3, 0.4, 0.5, 0.6, 0.70000005, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1926185, 1.2289182), Vector2(1, 1), Vector2(1, 1), Vector2(1.1926185, 1.2289182), Vector2(1, 1), Vector2(1, 1), Vector2(1.1926185, 1.2289182), Vector2(1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Goomba/Sprites/Head:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.16666667, 0.3, 0.4, 0.46666667, 0.6, 0.70000005, 0.76666665, 0.90000004),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 0, 0, 1), Color(1, 0, 0, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("SmokeSpawnPos/SmokeVFX:emitting")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("SmokeSpawnPos/SmokeVFX2:emitting")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("SmokeSpawnPos/SmokeVFX3:emitting")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0.90000004),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_kowhd"]
@@ -901,11 +1100,18 @@ tracks/8/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k7bdq"]
 _data = {
 &"RESET": SubResource("Animation_2n1in"),
+&"cooldown": SubResource("Animation_0ipta"),
 &"enemy_detected": SubResource("Animation_k7bdq"),
 &"hurt": SubResource("Animation_kowhd"),
 &"idle": SubResource("Animation_ie221"),
 &"move": SubResource("Animation_hqi5w")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqi5w"]
+size = Vector2(1602.3279, 102.44714)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hqi5w"]
+radius = 124.02857
 
 [node name="Goomba" type="CharacterBody2D" unique_id=799814277]
 collision_layer = 4
@@ -938,7 +1144,6 @@ position = Vector2(83.5, 56.5)
 texture = ExtResource("3_hqi5w")
 
 [node name="Head" type="Sprite2D" parent="Goomba/Sprites" unique_id=1718031874]
-material = SubResource("ShaderMaterial_hqi5w")
 position = Vector2(0, -48.772)
 texture = ExtResource("4_k7bdq")
 offset = Vector2(0, -113.818)
@@ -946,4 +1151,37 @@ offset = Vector2(0, -113.818)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1973021859]
 libraries/ = SubResource("AnimationLibrary_k7bdq")
 
+[node name="PlayerDetection" type="Area2D" parent="." unique_id=603324829]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection" unique_id=1779512005]
+shape = SubResource("RectangleShape2D_hqi5w")
+
+[node name="AttackRange" type="Area2D" parent="." unique_id=1534514481]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange" unique_id=2027358954]
+position = Vector2(2.59375, -59.65625)
+shape = SubResource("CircleShape2D_hqi5w")
+debug_color = Color(0.9647059, 0, 0.49019608, 0)
+
+[node name="SmokeSpawnPos" type="Marker2D" parent="." unique_id=808194147]
+position = Vector2(0, 58.857468)
+
+[node name="SmokeVFX" parent="SmokeSpawnPos" unique_id=1552230174 instance=ExtResource("7_k7bdq")]
+
+[node name="SmokeVFX2" parent="SmokeSpawnPos" unique_id=1334624795 instance=ExtResource("7_k7bdq")]
+
+[node name="SmokeVFX3" parent="SmokeSpawnPos" unique_id=1856959274 instance=ExtResource("7_k7bdq")]
+
+[node name="MoveOn" type="Timer" parent="." unique_id=272302777]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
+[connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
+[connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
+[connection signal="timeout" from="MoveOn" to="." method="_on_move_on_timeout"]
