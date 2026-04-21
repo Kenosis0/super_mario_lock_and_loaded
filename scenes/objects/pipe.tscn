@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://uypytstpk3j7"]
+
+[ext_resource type="Texture2D" uid="uid://da7jmarwg2150" path="res://assets/environment/PipeBody.png" id="1_hq07j"]
+[ext_resource type="Texture2D" uid="uid://lnf1um8wk0ke" path="res://assets/environment/PipeEntrance.png" id="2_i63kw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hq07j"]
+size = Vector2(122.20294, 2492.4485)
+
+[node name="Pipe" type="StaticBody2D" unique_id=1310037214]
+collision_mask = 6
+
+[node name="PipeBody" type="Sprite2D" parent="." unique_id=1750583644]
+position = Vector2(0, 1180.6993)
+scale = Vector2(1, 20.198364)
+texture = ExtResource("1_hq07j")
+
+[node name="PipeEntrance" type="Sprite2D" parent="." unique_id=1222684495]
+position = Vector2(0, -61.5)
+texture = ExtResource("2_i63kw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1945519672]
+position = Vector2(0, 1171.7076)
+shape = SubResource("RectangleShape2D_hq07j")

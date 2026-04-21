@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bo6jhhdq5hs3f" path="res://assets/enemy/Head.png" id="6_dydqt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kowhd"]
-radius = 114.79232
+radius = 28.893482
 
 [sub_resource type="Shader" id="Shader_hqi5w"]
 code = "shader_type canvas_item;
@@ -105,10 +105,11 @@ script = ExtResource("1_ncopc")
 metadata/_edit_horizontal_guides_ = [58.857468]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2091521995]
-position = Vector2(2.59375, -59.65625)
+position = Vector2(0.54470825, -16.626411)
 shape = SubResource("CircleShape2D_kowhd")
 
 [node name="Goomba" type="Node2D" parent="." unique_id=1649988251]
+scale = Vector2(0.3, 0.3)
 
 [node name="Sprites" type="Node2D" parent="Goomba" unique_id=2061517372]
 scale = Vector2(0.6, 0.6)

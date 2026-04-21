@@ -30,6 +30,10 @@ window/size/window_width_override=1152
 window/size/window_height_override=648
 window/stretch/mode="viewport"
 
+[editor]
+
+movie_writer/movie_file="C:/Users/John/Documents/GodotProjects/GodotGamplayClips/SuperMarioGameplay.avi"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/auto_polygon2d_triangulation/plugin.cfg")

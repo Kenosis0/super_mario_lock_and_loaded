@@ -5,7 +5,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_4pww6"]
 font = ExtResource("1_rfmsb")
-font_size = 200
+font_size = 60
 outline_size = 32
 outline_color = Color(1, 0.40784314, 0, 1)
 

@@ -9,6 +9,11 @@ var goal_score: int = 3750
 var goal_reached: bool = false
 var timer_finished: bool = false
 
+var levels: Array[String] = [
+	"uid://bxyeclsiraagj"
+]
+var current_level: int = 0
+
 
 func _ready() -> void:
 	set_process_mode(Node.PROCESS_MODE_ALWAYS)
@@ -37,3 +42,13 @@ func add_score(amount: int) -> void:
 			notification_ui.show()
 			get_tree().set_pause(true)
 		goal_reached = true
+
+
+func get_level() -> PackedScene:
+	var level: PackedScene = null
+	var path = levels.get(current_level)
+	
+	if path.length() > 0:
+		return load(path)
+	
+	return level

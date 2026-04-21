@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://hjkuph3rco1a"]
+
+[ext_resource type="Script" uid="uid://vc7kpen1vsv5" path="res://scripts/player/camera.gd" id="1_qplf5"]
+
+[node name="Camera2D" type="Camera2D" unique_id=1878465010 node_paths=PackedStringArray("player")]
+offset = Vector2(0, -120)
+position_smoothing_enabled = true
+script = ExtResource("1_qplf5")
+player = NodePath("")
+max_vertical_offset = 500.0
+max_horizontal_offset = 500.0

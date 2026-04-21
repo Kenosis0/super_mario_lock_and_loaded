@@ -16,6 +16,8 @@ const ROCK = preload("uid://lkxpxt25v0y")
 @export var sprint_accel := 3000.0 
 @export var walk_decel := 12000.0
 @export var sprint_decel := 14000.0
+@export var scale_horizontal_motion_with_player := true
+@export var horizontal_motion_base_scale := 1.0
 
 @export var jump_velocity := 2400
 @export var gravity_weight := 6200
@@ -141,6 +143,8 @@ func _physics_process(delta: float) -> void:
 
 	var control_locked := _is_control_locked()
 	input_x = 0.0 if control_locked else Input.get_axis("left", "right")
+	if abs(input_x) < 0.1:
+		input_x = 0.0
 	
 	if input_x != 0.0:
 		face_dir = Vector2(input_x, 0.0)
@@ -148,6 +152,8 @@ func _physics_process(delta: float) -> void:
 	var want_move = abs(input_x) > 0.001
 	var want_sprint = Input.is_action_pressed("sprint") and want_move and not control_locked
 	var grounded := is_on_floor()
+	var horizontal_motion_scale := _get_horizontal_motion_scale()
+	var horizontal_rate_scale := 1.0 / horizontal_motion_scale
 
 	# flip
 	if want_move:
@@ -171,10 +177,13 @@ func _physics_process(delta: float) -> void:
 	
 	# speed + rates
 	var move_max_speed := sprint_speed if want_sprint else walk_speed
+	var moving_fast = abs(controlled_velocity.x) > (walk_speed + 0.001)
 
-	var a := (air_sprint_accel if want_sprint else air_walk_accel) if not grounded else (sprint_accel if want_sprint else walk_accel)
-	var d := (air_sprint_decel if want_sprint else air_walk_decel) if not grounded else (sprint_decel if want_sprint else walk_decel)
-	var turn_accel := (air_sprint_turn_accel if want_sprint else air_walk_turn_accel) if not grounded else (sprint_turn_accel if want_sprint else walk_turn_accel)
+	var accel_base := (air_sprint_accel if want_sprint else air_walk_accel) if not grounded else (sprint_accel if want_sprint else walk_accel)
+	var turn_accel_base := (air_sprint_turn_accel if want_sprint else air_walk_turn_accel) if not grounded else (sprint_turn_accel if want_sprint else walk_turn_accel)
+
+	var a := accel_base * horizontal_rate_scale
+	var turn_accel := turn_accel_base * horizontal_rate_scale
 
 	var target_speed := input_x * move_max_speed
 
@@ -183,9 +192,11 @@ func _physics_process(delta: float) -> void:
 		var rate := turn_accel if reversing else a
 		controlled_velocity.x = move_toward(controlled_velocity.x, target_speed, rate * delta)
 	else:
-		controlled_velocity.x = move_toward(controlled_velocity.x, 0.0, d * delta)
+		controlled_velocity.x = 0.0
 
 	velocity = kb.add_to(controlled_velocity)
+	if not control_locked and not want_move:
+		velocity.x = 0.0
 
 	move_and_slide()
 
@@ -242,6 +253,15 @@ func apply_knockback(from_global_pos: Vector2, amount: float = -1.0) -> void:
 
 func _is_control_locked() -> bool:
 	return knockback_control_lock_left > 0.0 or kb.is_active()
+
+
+func _get_horizontal_motion_scale() -> float:
+	if not scale_horizontal_motion_with_player:
+		return 1.0
+
+	var base = max(horizontal_motion_base_scale, 0.001)
+	var scale_x = abs(global_scale.x)
+	return max(scale_x / base, 0.05)
 
 
 func _cancel_sling_state() -> void:

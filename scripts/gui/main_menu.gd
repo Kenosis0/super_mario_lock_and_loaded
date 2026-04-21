@@ -66,7 +66,7 @@ func _on_play_pressed() -> void:
 	fade_rect.mouse_filter = Control.MOUSE_FILTER_STOP
 	tween.tween_property(fade_rect, "color:a", 1.0, 0.5).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
 	await tween.finished
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	get_tree().change_scene_to_packed(GameManager.get_level())
 
 
 func _on_exit_pressed() -> void:
