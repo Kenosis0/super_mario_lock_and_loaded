@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://bxyeclsiraagj"]
 
 [ext_resource type="Texture2D" uid="uid://vgvjwji5kcnh" path="res://assets/environment/Cloud.png" id="1_3nbpy"]
-[ext_resource type="Script" uid="uid://cun5r30f37t62" path="res://scripts/level/level_1.gd" id="1_s8va5"]
+[ext_resource type="Script" uid="uid://dj2jbfui1nym" path="res://scripts/level/level_1.gd" id="1_s8va5"]
 [ext_resource type="Script" uid="uid://cf5lrvpaxm5yj" path="res://scripts/level/level_data.gd" id="2_dga24"]
 [ext_resource type="PackedScene" uid="uid://uypytstpk3j7" path="res://scenes/objects/pipe.tscn" id="2_dj1ns"]
 [ext_resource type="Texture2D" uid="uid://chbi7gd84lgs7" path="res://assets/Tiles/new/Blocks.png" id="2_trc2a"]
@@ -10,10 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://j8helgs1nrin" path="res://scenes/characters/goomba/goomba.tscn" id="6_ej0jc"]
 [ext_resource type="PackedScene" uid="uid://hjkuph3rco1a" path="res://scenes/characters/player/player_camera.tscn" id="7_dj1ns"]
 
-[sub_resource type="Resource" id="Resource_qxy0u"]
+[sub_resource type="Resource" id="Resource_dga24"]
 script = ExtResource("2_dga24")
 level_id = 1
-score_objective = 1000
+score_objective = 2500
 metadata/_custom_type_script = "uid://cf5lrvpaxm5yj"
 
 [sub_resource type="Gradient" id="Gradient_ej0jc"]
@@ -78,7 +78,7 @@ sources/1 = SubResource("TileSetAtlasSource_38je0")
 
 [node name="Level1" type="Node2D" unique_id=2063160365]
 script = ExtResource("1_s8va5")
-level_data = SubResource("Resource_qxy0u")
+level_data = SubResource("Resource_dga24")
 
 [node name="ParallaxBackground" type="Node2D" parent="." unique_id=532646086]
 

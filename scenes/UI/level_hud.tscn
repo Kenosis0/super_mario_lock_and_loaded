@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://bxdk8rhcjsk6e"]
+
+[ext_resource type="Script" uid="uid://cqjysr4pabu5e" path="res://scripts/gui/level_hud.gd" id="1_vhmfd"]
+[ext_resource type="Script" uid="uid://dwd6s66h0jjvj" path="res://scripts/gui/timer_ui.gd" id="2_l4s1o"]
+[ext_resource type="LabelSettings" uid="uid://ce3ykiirmjowj" path="res://resources/hud_label.tres" id="2_vhmfd"]
+[ext_resource type="Texture2D" uid="uid://0feevt5ex7qt" path="res://assets/MarioSlingShooter/Head.png" id="4_5kl0l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqw6x"]
+bg_color = Color(0.47496033, 0.06671614, 0.058315553, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_left = 32
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m0j3f"]
+bg_color = Color(0, 0.09745719, 0.0067107202, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_left = 32
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2mfnc"]
+bg_color = Color(0, 0.64705884, 0.15294118, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_left = 32
+corner_detail = 20
+
+[sub_resource type="Theme" id="Theme_rx8v8"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_m0j3f")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_2mfnc")
+
+[node name="LevelHUD" type="CanvasLayer" unique_id=1677959743]
+script = ExtResource("1_vhmfd")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1541638728]
+offset_right = 471.0
+offset_bottom = 182.0
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1256680582]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=411287577]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1511940048]
+layout_mode = 2
+text = "Time: "
+label_settings = ExtResource("2_vhmfd")
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=225301072]
+layout_mode = 2
+text = "00:00:00"
+label_settings = ExtResource("2_vhmfd")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=624100429]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=996707414]
+layout_mode = 2
+text = "Score: "
+label_settings = ExtResource("2_vhmfd")
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=870816944]
+layout_mode = 2
+text = "000367"
+label_settings = ExtResource("2_vhmfd")
+
+[node name="Node" type="Node" parent="." unique_id=100920552 node_paths=PackedStringArray("label_timer")]
+script = ExtResource("2_l4s1o")
+label_timer = NodePath("../MarginContainer/VBoxContainer/HBoxContainer2/Label2")
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=2014794695]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -274.0
+offset_top = -299.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 48
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer2" unique_id=718097418]
+layout_mode = 2
+texture = ExtResource("4_5kl0l")
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer2/TextureRect" unique_id=429695325]
+layout_mode = 0
+offset_left = -336.41724
+offset_top = 260.03302
+offset_right = 154.58276
+offset_bottom = 303.03302
+theme_override_styles/panel = SubResource("StyleBoxFlat_bqw6x")
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer2/TextureRect/PanelContainer" unique_id=873250822]
+layout_mode = 2
+
+[node name="HealthBar" type="ProgressBar" parent="MarginContainer2/TextureRect/PanelContainer/CenterContainer" unique_id=624602600]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(466.76, 0)
+layout_mode = 2
+theme = SubResource("Theme_rx8v8")
+value = 91.9
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2" unique_id=1344516715]
+layout_mode = 2
+theme_override_constants/separation = -7
+
+[node name="MarginContainer3" type="MarginContainer" parent="." unique_id=726635767]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Label" type="Label" parent="MarginContainer3" unique_id=8942812]
+layout_mode = 2
+text = "Level 2"
+label_settings = ExtResource("2_vhmfd")

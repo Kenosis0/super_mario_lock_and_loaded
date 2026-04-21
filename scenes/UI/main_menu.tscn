@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://d2vjk46c4vvth" path="res://assets/background/TitleScreenBackground.jpg" id="1_bg"]
 [ext_resource type="FontFile" uid="uid://x6manew3u23n" path="res://assets/fonts/Melon Pop.ttf" id="2_font"]
 [ext_resource type="Script" uid="uid://cpgs4b584uulv" path="res://scripts/gui/main_menu.gd" id="3_script"]
+[ext_resource type="Theme" uid="uid://djmvfyo8okw6y" path="res://resources/button_theme.tres" id="4_tfcbk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_title"]
 font = ExtResource("2_font")
@@ -101,6 +102,7 @@ color = Color(0, 0, 0, 0.35)
 
 [node name="Content" type="VBoxContainer" parent="." unique_id=409096979]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 683)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -113,8 +115,7 @@ offset_right = 450.0
 offset_bottom = 280.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
-alignment = 1
+theme_override_constants/separation = 48
 
 [node name="Title" type="Label" parent="Content" unique_id=1131682974]
 unique_name_in_owner = true
@@ -124,14 +125,25 @@ Lock and Loaded"
 label_settings = SubResource("LabelSettings_title")
 horizontal_alignment = 1
 
-[node name="Spacer" type="Control" parent="Content" unique_id=670562022]
-custom_minimum_size = Vector2(0, 30)
+[node name="MarginContainer" type="MarginContainer" parent="Content" unique_id=1277116187]
 layout_mode = 2
+theme_override_constants/margin_left = 58
+theme_override_constants/margin_right = 58
 
-[node name="PlayButton" type="Button" parent="Content" unique_id=513193564]
+[node name="Buttons" type="VBoxContainer" parent="Content/MarginContainer" unique_id=2120515100]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 408)
 layout_mode = 2
-size_flags_horizontal = 4
+theme_override_constants/separation = 24
+alignment = 2
+
+[node name="ContinueButton" type="Button" parent="Content/MarginContainer/Buttons" unique_id=763745242]
+layout_mode = 2
+theme = ExtResource("4_tfcbk")
+text = "CONTINUE"
+
+[node name="PlayButton" type="Button" parent="Content/MarginContainer/Buttons" unique_id=513193564]
+layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.9, 0.85, 0.7, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 0.9, 1)
@@ -141,12 +153,16 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_normal")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_pressed")
 theme_override_styles/hover = SubResource("StyleBoxFlat_hover")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_focus")
-text = "PLAY"
+text = "NEW GAME"
 
-[node name="ExitButton" type="Button" parent="Content" unique_id=1069350146]
-unique_name_in_owner = true
+[node name="LevelButton" type="Button" parent="Content/MarginContainer/Buttons" unique_id=245325782]
 layout_mode = 2
-size_flags_horizontal = 4
+theme = ExtResource("4_tfcbk")
+text = "SELECT LEVEL"
+
+[node name="ExitButton" type="Button" parent="Content/MarginContainer/Buttons" unique_id=1069350146]
+layout_mode = 2
+theme = ExtResource("4_tfcbk")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.9, 0.85, 0.7, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 0.9, 1)
@@ -156,7 +172,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_normal")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_pressed")
 theme_override_styles/hover = SubResource("StyleBoxFlat_hover")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_focus")
-text = "EXIT"
+text = "QUIT GAME"
 
 [node name="FadeRect" type="ColorRect" parent="." unique_id=1311759593]
 unique_name_in_owner = true
@@ -169,6 +185,3 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
-
-[connection signal="pressed" from="Content/PlayButton" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="Content/ExitButton" to="." method="_on_exit_pressed"]

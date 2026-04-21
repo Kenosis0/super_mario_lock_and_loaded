@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dug8bovqvdk2m"]
+
+[ext_resource type="Script" uid="uid://cvbfoeoli7io3" path="res://scripts/gui/pause_menu_ui.gd" id="1_2lmgi"]
+[ext_resource type="Theme" uid="uid://djmvfyo8okw6y" path="res://resources/button_theme.tres" id="2_lxyas"]
+
+[node name="PauseMenuUI" type="CanvasLayer" unique_id=960749700]
+process_mode = 3
+script = ExtResource("1_2lmgi")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=696352819]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 0.80784315, 0.5019608)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1507775073]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -207.5
+offset_top = -86.0
+offset_right = 207.5
+offset_bottom = 86.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+
+[node name="ResumeButton" type="Button" parent="VBoxContainer" unique_id=258330523]
+layout_mode = 2
+theme = ExtResource("2_lxyas")
+text = "RESUME"
+
+[node name="MainmenuButton" type="Button" parent="VBoxContainer" unique_id=4752889]
+layout_mode = 2
+theme = ExtResource("2_lxyas")
+text = "MAIN MENU"
+
+[connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MainmenuButton" to="." method="_on_mainmenu_button_pressed"]

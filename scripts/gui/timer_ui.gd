@@ -1,9 +1,9 @@
-extends PanelContainer
+extends Node
 class_name TimerUI
 
 signal finished
 
-@onready var label_timer: Label = $LabelTimer
+@export var label_timer: Label
 
 @export var time: float = 60.0  # total seconds
 
@@ -23,6 +23,7 @@ func _ready() -> void:
 	_remaining = max(time, 0.0)
 	_update_label()
 	_set_blink_state(_calc_blink_state())
+	start()
 
 func start() -> void:
 	if _remaining <= 0.0:

@@ -1,4 +1,7 @@
-extends Node2D
+extends LevelInterface
+class_name Level1
 
 
-@export var level_data: LevelData
+
+func enter_level() -> void:
+	print("Level started")

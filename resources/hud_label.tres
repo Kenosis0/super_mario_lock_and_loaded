@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://ce3ykiirmjowj"]
+
+[ext_resource type="FontFile" uid="uid://x6manew3u23n" path="res://assets/fonts/Melon Pop.ttf" id="1_rhvft"]
+
+[resource]
+font = ExtResource("1_rhvft")
+font_size = 48
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
