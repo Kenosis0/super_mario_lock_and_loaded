@@ -1,12 +1,20 @@
 [gd_scene format=4 uid="uid://bxyeclsiraagj"]
 
 [ext_resource type="Texture2D" uid="uid://vgvjwji5kcnh" path="res://assets/environment/Cloud.png" id="1_3nbpy"]
+[ext_resource type="Script" uid="uid://cun5r30f37t62" path="res://scripts/level/level_1.gd" id="1_s8va5"]
+[ext_resource type="Script" uid="uid://cf5lrvpaxm5yj" path="res://scripts/level/level_data.gd" id="2_dga24"]
 [ext_resource type="PackedScene" uid="uid://uypytstpk3j7" path="res://scenes/objects/pipe.tscn" id="2_dj1ns"]
 [ext_resource type="Texture2D" uid="uid://chbi7gd84lgs7" path="res://assets/Tiles/new/Blocks.png" id="2_trc2a"]
 [ext_resource type="Texture2D" uid="uid://bip0mwvsw5jtg" path="res://assets/Tiles/new/GrassBlock.png" id="3_ej0jc"]
 [ext_resource type="PackedScene" uid="uid://dqo6vvy0pcixm" path="res://scenes/characters/player/player.tscn" id="3_s28nj"]
 [ext_resource type="PackedScene" uid="uid://j8helgs1nrin" path="res://scenes/characters/goomba/goomba.tscn" id="6_ej0jc"]
 [ext_resource type="PackedScene" uid="uid://hjkuph3rco1a" path="res://scenes/characters/player/player_camera.tscn" id="7_dj1ns"]
+
+[sub_resource type="Resource" id="Resource_qxy0u"]
+script = ExtResource("2_dga24")
+level_id = 1
+score_objective = 1000
+metadata/_custom_type_script = "uid://cf5lrvpaxm5yj"
 
 [sub_resource type="Gradient" id="Gradient_ej0jc"]
 offsets = PackedFloat32Array(0, 0.7553444, 0.8099762, 0.86935866, 0.9192399, 1)
@@ -69,6 +77,8 @@ sources/0 = SubResource("TileSetAtlasSource_dj1ns")
 sources/1 = SubResource("TileSetAtlasSource_38je0")
 
 [node name="Level1" type="Node2D" unique_id=2063160365]
+script = ExtResource("1_s8va5")
+level_data = SubResource("Resource_qxy0u")
 
 [node name="ParallaxBackground" type="Node2D" parent="." unique_id=532646086]
 

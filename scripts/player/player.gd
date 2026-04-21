@@ -106,7 +106,7 @@ func _process(delta: float) -> void:
 		anim_tree.set("parameters/RunScale/scale", 1.23)
 	
 	var rock_spawn = get_node(rock_spawn_point)
-	util.compute_follow_target(rock_spawn, mouse, 180, Vector2(0, -20))
+	util.compute_follow_target(rock_spawn, mouse, 60, Vector2(0, -20))
 	
 	if using_sling == false:
 		return

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Super Mario Lock and Loaded"
-run/main_scene="uid://duv88jyfexlov"
+run/main_scene="uid://bxyeclsiraagj"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 

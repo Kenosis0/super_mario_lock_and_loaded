@@ -1072,8 +1072,8 @@ position = Vector2(519.25385, 598.73114)
 scale = Vector2(0.9999974, 0.9999974)
 
 [node name="Head" type="Sprite2D" parent="Render/SubViewport/Sprites" unique_id=1821395704]
-position = Vector2(-7.4959717, -123.20468)
-rotation = -0.011703929
+position = Vector2(-7.4959717, -126.70535)
+rotation = -2.3965592
 scale = Vector2(0.99987775, 0.99987775)
 texture = ExtResource("1_hv5x3")
 offset = Vector2(37.063892, -115.897736)
@@ -1084,9 +1084,9 @@ offset = Vector2(37.063892, -115.897736)
 position = Vector2(-0.8973694, -66.735535)
 
 [node name="HandL" type="Sprite2D" parent="Render/SubViewport/Sprites/ArmL" unique_id=780959891]
-position = Vector2(110.65967, 245.8161)
-rotation = -0.55774677
-scale = Vector2(0.999821, 0.999821)
+position = Vector2(-103.63904, -228.11679)
+rotation = 2.290408
+scale = Vector2(0.9998179, 0.9998179)
 texture = ExtResource("2_ykrpk")
 offset = Vector2(14.174126, 28.681366)
 
@@ -1106,17 +1106,17 @@ polygons = [PackedInt32Array(6, 7, 8), PackedInt32Array(2, 5, 9), PackedInt32Arr
 internal_vertex_count = 7
 
 [node name="LoArmL" type="Sprite2D" parent="Render/SubViewport/Sprites/ArmL" unique_id=48622874]
-position = Vector2(21.834839, 127.75122)
-rotation = -0.39590827
-scale = Vector2(0.99982107, 0.99982107)
+position = Vector2(15.538574, -140.79077)
+rotation = 2.4522464
+scale = Vector2(0.99982023, 0.99982023)
 texture = ExtResource("3_i1nod")
 offset = Vector2(17.510612, 69.44067)
 
 [node name="Marker2D" type="Marker2D" parent="Render/SubViewport/Sprites/ArmL/LoArmL" unique_id=73531080]
 
 [node name="UpArmL" type="Sprite2D" parent="Render/SubViewport/Sprites/ArmL" unique_id=1608495272]
-position = Vector2(-6.300476, -4.1741333)
-rotation = -0.17797089
+position = Vector2(-6.302002, -7.677429)
+rotation = -2.946822
 scale = Vector2(0.99983835, 0.99983835)
 texture = ExtResource("4_4kqyw")
 offset = Vector2(1.75, 67.265625)
@@ -1139,9 +1139,9 @@ internal_vertex_count = 323
 position = Vector2(5.020569, 212.37408)
 
 [node name="UpLegL" type="Sprite2D" parent="Render/SubViewport/Sprites/LegL" unique_id=1608420368]
-position = Vector2(2.2780151, 5.6220703)
-rotation = -0.72729003
-scale = Vector2(0.99996567, 0.99996567)
+position = Vector2(2.2780151, 2.121399)
+rotation = -1.6142677
+scale = Vector2(0.9999, 0.9999)
 texture = ExtResource("6_ro20i")
 offset = Vector2(0.4803629, 72.63057)
 
@@ -1161,7 +1161,7 @@ internal_vertex_count = 84
 [node name="Marker2D2" type="Marker2D" parent="Render/SubViewport/Sprites/LegL/ShinL" unique_id=1477784878]
 
 [node name="Hip" type="Sprite2D" parent="Render/SubViewport/Sprites" unique_id=191255987]
-position = Vector2(-1.2538452, 168.81921)
+position = Vector2(-1.2538452, 165.31854)
 scale = Vector2(1.0000026, 1.0000026)
 texture = ExtResource("8_tebod")
 offset = Vector2(0, 52.316)
@@ -1172,9 +1172,9 @@ offset = Vector2(0, 52.316)
 position = Vector2(-13.808411, 221.32092)
 
 [node name="UpLegR" type="Sprite2D" parent="Render/SubViewport/Sprites/LegR" unique_id=1657177333]
-position = Vector2(2.5545044, 6.194275)
-rotation = -0.120789975
-scale = Vector2(0.9998774, 0.9998774)
+position = Vector2(2.5545044, 2.6935425)
+rotation = -0.0019052662
+scale = Vector2(0.9998331, 0.9998331)
 texture = ExtResource("9_6nfx3")
 offset = Vector2(-0.62091064, 72.03186)
 
@@ -1198,7 +1198,7 @@ position = Vector2(0.8460388, 0)
 position = Vector2(-17.43872, 170.3703)
 
 [node name="Belt" type="Sprite2D" parent="Render/SubViewport/Sprites" unique_id=603536937]
-position = Vector2(-1.2538452, 168.81921)
+position = Vector2(-1.2538452, 165.31854)
 scale = Vector2(1.0000026, 1.0000026)
 texture = ExtResource("11_d73qs")
 offset = Vector2(3, 19.5)
@@ -1207,25 +1207,25 @@ offset = Vector2(3, 19.5)
 position = Vector2(-34.90909, -48.90909)
 
 [node name="UpArmR" type="Sprite2D" parent="Render/SubViewport/Sprites/ArmR" unique_id=461348569]
-position = Vector2(-5.7680054, -3.2964478)
-rotation = 0.1857419
-scale = Vector2(1.0016222, 1.0016222)
+position = Vector2(-5.7760925, -6.7996216)
+rotation = 2.1691794
+scale = Vector2(1.0016207, 1.0016207)
 texture = ExtResource("14_2v4cy")
 offset = Vector2(-14.734375, 61.476563)
 
 [node name="LoArmR" type="Sprite2D" parent="Render/SubViewport/Sprites/ArmR" unique_id=1571298702]
-position = Vector2(-61.53134, 116.466)
-rotation = -0.10046954
-scale = Vector2(1.0025376, 1.0025376)
+position = Vector2(-93.12277, -105.91022)
+rotation = 2.3785615
+scale = Vector2(1.0025362, 1.0025362)
 texture = ExtResource("13_bxwvg")
 offset = Vector2(-3.4603348, 71.8647)
 
 [node name="Marker2D" type="Marker2D" parent="Render/SubViewport/Sprites/ArmR/LoArmR" unique_id=223041339]
 
 [node name="HandR" type="Sprite2D" parent="Render/SubViewport/Sprites/ArmR" unique_id=1970332231]
-position = Vector2(-52.67041, 264.39496)
-rotation = -0.10046954
-scale = Vector2(1.0023924, 1.0023924)
+position = Vector2(-191.10559, -217.08939)
+rotation = 2.3785615
+scale = Vector2(1.002391, 1.002391)
 texture = ExtResource("12_u6wme")
 offset = Vector2(1.570343, 32.049316)
 
@@ -1256,6 +1256,7 @@ rest = Transform2D(0.999614, 0.023072505, -0.023072505, 0.999614, 19.696644, -98
 auto_calculate_length_and_angle = false
 length = 136.714
 bone_angle = 0.0
+metadata/_local_pose_override_enabled_ = true
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Render/SubViewport/Skeleton/Hip/Spine/Torso/Head" unique_id=1239108648]
 remote_path = NodePath("../../../../../../Sprites/Head")
@@ -1263,13 +1264,15 @@ remote_path = NodePath("../../../../../../Sprites/Head")
 [node name="UpArmR" type="Bone2D" parent="Render/SubViewport/Skeleton/Hip/Spine/Torso" unique_id=1026030127]
 position = Vector2(-16.649231, -18.35321)
 rotation = 4.426212e-05
-scale = Vector2(1.0016196, 1.0016196)
+scale = Vector2(1.0016195, 1.0016195)
 rest = Transform2D(0.99854547, -0.050836295, 0.050836295, 0.99854547, -16.059631, -32.966675)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="LoArmR" type="Bone2D" parent="Render/SubViewport/Skeleton/Hip/Spine/Torso/UpArmR" unique_id=1265513412]
 position = Vector2(-32.630737, 127.798706)
-scale = Vector2(1.000914, 1.000914)
+scale = Vector2(1.0009137, 1.0009137)
 rest = Transform2D(1.0008452, 0, 0, 1.0008452, -32.635406, 127.791565)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="HandR" type="Bone2D" parent="Render/SubViewport/Skeleton/Hip/Spine/Torso/UpArmR/LoArmR" unique_id=1048356871]
 position = Vector2(-6.0058947, 147.69696)
@@ -1290,12 +1293,14 @@ position = Vector2(17.541779, -35.724426)
 rotation = 0.004946691
 scale = Vector2(0.9998369, 0.9998369)
 rest = Transform2D(0.99972796, 0.0091608, -0.0091608, 0.99972796, 18.12085, -50.351196)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="LoArmL" type="Bone2D" parent="Render/SubViewport/Skeleton/Hip/Spine/Torso/UpArmL" unique_id=277416014]
 position = Vector2(4.334656, 134.84143)
 rotation = -0.00938398
 scale = Vector2(0.9999827, 0.9999827)
 rest = Transform2D(0.99995655, 0, 0, 0.99995655, 4.3339233, 134.8352)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="HandL" type="Bone2D" parent="Render/SubViewport/Skeleton/Hip/Spine/Torso/UpArmL/LoArmL" unique_id=611857230]
 position = Vector2(36.42917, 143.21278)
@@ -1315,18 +1320,21 @@ position = Vector2(-10.000061, 58.6958)
 rotation = -0.0099948095
 scale = Vector2(0.9998773, 0.9998773)
 rest = Transform2D(0.99671686, -0.07943794, 0.07943794, 0.99671686, -10.000061, 58.6958)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="ShinR" type="Bone2D" parent="Render/SubViewport/Skeleton/Hip/LegR" unique_id=686638746]
 position = Vector2(-9.270111, 168.79578)
 rotation = 0.01900847
 scale = Vector2(0.9999702, 0.9999702)
 rest = Transform2D(0.9875583, 0.15720753, -0.15720753, 0.9875583, -9.268402, 168.78943)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="Foot1" type="Bone2D" parent="Render/SubViewport/Skeleton/Hip/LegR/ShinR" unique_id=899031434]
 position = Vector2(-12.164178, 170.82794)
 rotation = -0.0025810967
 scale = Vector2(0.99983066, 0.99983066)
 rest = Transform2D(0.996025, -0.087211534, 0.087211534, 0.996025, -12.164178, 170.82794)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="Foot2" type="Bone2D" parent="Render/SubViewport/Skeleton/Hip/LegR/ShinR/Foot1" unique_id=899931520]
 position = Vector2(62.815254, 19.253832)
@@ -1350,18 +1358,21 @@ position = Vector2(8.552429, 49.17682)
 rotation = -0.026840512
 scale = Vector2(0.9999658, 0.9999658)
 rest = Transform2D(0.97543997, -0.21990587, 0.21990587, 0.97543997, 8.552429, 49.17682)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="ShinL" type="Bone2D" parent="Render/SubViewport/Skeleton/Hip/LegL" unique_id=1057036947]
 position = Vector2(-6.3427734, 167.0893)
 rotation = 0.0029761463
 scale = Vector2(1.0000056, 1.0000056)
 rest = Transform2D(0.93878037, 0.3444816, -0.3444816, 0.93878037, -6.3396606, 167.08942)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="Foot1" type="Bone2D" parent="Render/SubViewport/Skeleton/Hip/LegL/ShinL" unique_id=874537554]
 position = Vector2(-18.84492, 170.22044)
 rotation = 0.06852518
 scale = Vector2(0.99998724, 0.99998724)
 rest = Transform2D(0.99552876, -0.09349018, 0.09349018, 0.99552876, -18.84492, 170.22044)
+metadata/_local_pose_override_enabled_ = true
 
 [node name="Foot2" type="Bone2D" parent="Render/SubViewport/Skeleton/Hip/LegL/ShinL/Foot1" unique_id=1610560561]
 position = Vector2(62.01303, 21.69908)

@@ -100,6 +100,7 @@ joint_data/1/constraint_in_localspace = true
 joint_data/1/editor_draw_gizmo = true
 
 [resource]
+enabled = true
 modification_count = 7
 modifications/0 = SubResource("SkeletonModification2DCCDIK_ykrpk")
 modifications/1 = SubResource("SkeletonModification2DCCDIK_i1nod")

@@ -30,9 +30,7 @@ func _input(event: InputEvent) -> void:
 
 
 func add_score(amount: int) -> void:
-	if score_label:
-		score += amount
-		score_label.text = "%06d" % score
+	score += amount
 	
 	if score >= goal_score:
 		if game_timer:
@@ -42,6 +40,9 @@ func add_score(amount: int) -> void:
 			notification_ui.show()
 			get_tree().set_pause(true)
 		goal_reached = true
+	
+	print("Added amount: ", amount)
+	print("current score: ", score)
 
 
 func get_level() -> PackedScene:
