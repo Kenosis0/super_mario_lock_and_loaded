@@ -1,5 +1,5 @@
 extends LevelInterface
-class_name Level1
+
 
 func enter_level() -> void:
 	AudioManager.play_bgm(AudioManager.BGMTEST_2)

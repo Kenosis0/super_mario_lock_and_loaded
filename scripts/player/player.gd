@@ -1,6 +1,9 @@
 extends CharacterBody2D
 class_name Player
 
+signal health_changed(current_health: int, max_health: int)
+signal died
+
 const ROCK = preload("uid://lkxpxt25v0y")
 
 @onready var util = UtilityScript as UtilityScript
@@ -35,6 +38,10 @@ const ROCK = preload("uid://lkxpxt25v0y")
 @export var knockback_decay := 2200.0
 @export var knockback_control_lock_time := 0.2
 @export var hit_jump_velocity := 650.0
+@export var max_health: int = 100
+@export var default_hit_damage: int = 10
+
+var current_health: int = 100
 
 var input_x := 0.0
 var face_dir: Vector2 = Vector2.RIGHT
@@ -65,6 +72,8 @@ var limb_count: float = limb_timer
 
 func _ready() -> void:
 	kb = Knockback.new(knockback_force, knockback_decay)
+	current_health = max_health
+	emit_signal("health_changed", current_health, max_health)
 	print("player viewport: ", get_viewport().get_instance_id())
 	var rock = get_node(rock_spawn_point)
 	print("muzzle viewport: ", rock.get_viewport().get_instance_id())
@@ -173,6 +182,7 @@ func _physics_process(delta: float) -> void:
 		jump_alpha = 0.0
 		
 		if Input.is_action_just_pressed("jump") and not control_locked:
+			AudioManager.play_sfx(AudioManager.JUMPV_1)
 			jump()
 	
 	# speed + rates
@@ -246,9 +256,28 @@ func apply_hit(from_global_pos: Vector2, amount: float = -1.0) -> void:
 	knockback_control_lock_left = max(knockback_control_lock_left, knockback_control_lock_time)
 	_cancel_sling_state()
 
+	var damage := default_hit_damage
+	if amount >= 0.0:
+		damage = int(round(amount))
+	elif amount < 0.0 and amount != -1.0:
+		damage = int(round(abs(amount)))
+
+	take_damage(damage)
+
 
 func apply_knockback(from_global_pos: Vector2, amount: float = -1.0) -> void:
 	apply_hit(from_global_pos, amount)
+
+
+func take_damage(amount: int) -> void:
+	if amount <= 0:
+		return
+
+	current_health = max(current_health - amount, 0)
+	emit_signal("health_changed", current_health, max_health)
+	
+	if current_health <= 0:
+		emit_signal("died")
 
 
 func _is_control_locked() -> bool:

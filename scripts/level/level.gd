@@ -15,10 +15,22 @@ func _ready() -> void:
 		current_score = level_data.current_score
 		score_objective = level_data.score_objective
 		level_started = level_data.level_started
+		GameManager.score = current_score
+		GameManager.goal_score = score_objective
+		GameManager.current_level_data = level_data
 	
 	GameManager.level_started = true
+	if not GameManager.score_changed.is_connected(_on_score_changed):
+		GameManager.score_changed.connect(_on_score_changed)
+	
 	var hud: LevelHud = GameManager.LEVEL_HUD.instantiate()
 	add_child(hud)
+	var player: Player = get_node_or_null("Player") as Player
+	hud.setup(level_data, player)
+	
+	if player and not player.died.is_connected(_on_player_died):
+		player.died.connect(_on_player_died)
+	
 	enter_level()
 
 
@@ -34,3 +46,12 @@ func exit_level() -> void:
 	new_level_data.level_started = level_started
 	
 	level_data = new_level_data
+
+
+func _on_score_changed(new_score: int, _goal: int) -> void:
+	current_score = new_score
+	if level_data:
+		level_data.current_score = new_score
+
+func _on_player_died() -> void:
+	GameManager.finish_level(false)

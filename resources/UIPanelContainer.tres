@@ -1,0 +1,17 @@
+[gd_resource type="Theme" format=3 uid="uid://851virxd1km3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k8l4k"]
+bg_color = Color(0.18431373, 0.18431373, 0.36862746, 0.6901961)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.9403507, 0.7899913, 0, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+shadow_size = 64
+
+[resource]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_k8l4k")

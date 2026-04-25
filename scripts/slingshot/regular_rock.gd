@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Rock
 
 @onready var anim: AnimationPlayer = $AnimationPlayer
-@onready var sprite: Node2D = $Sprite
+@onready var sprite: Sprite2D = %BulletSprite
 @onready var col: CollisionShape2D = $CollisionShape2D
 
 @export var rotate_lerp_speed := 18.0 # higher = snappier

@@ -160,6 +160,11 @@ layout_mode = 2
 theme = ExtResource("4_tfcbk")
 text = "SELECT LEVEL"
 
+[node name="Settings" type="Button" parent="Content/MarginContainer/Buttons" unique_id=820355715]
+layout_mode = 2
+theme = ExtResource("4_tfcbk")
+text = "SETTINGS"
+
 [node name="ExitButton" type="Button" parent="Content/MarginContainer/Buttons" unique_id=1069350146]
 layout_mode = 2
 theme = ExtResource("4_tfcbk")

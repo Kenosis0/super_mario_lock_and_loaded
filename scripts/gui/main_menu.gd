@@ -1,5 +1,8 @@
 extends Control
 
+const LEVEL_SELECT_UI := "res://scenes/UI/level_select.tscn"
+const SETTINGS_UI := "res://scenes/UI/settings.tscn"
+
 @onready var title: Label = %Title
 @onready var content: VBoxContainer = %Content
 @onready var buttons: VBoxContainer = %Buttons
@@ -32,24 +35,34 @@ func _on_menu_button_pressed(button_name: String) -> void:
 			_on_newgame_button_pressed()
 		"select level":
 			_on_selectlevel_button_pressed()
+		"settings":
+			_on_setting_button_pressed()
 		"quit game":
 			_on_quit_button_pressed()
 
 
 func _on_continue_button_pressed() -> void:
-	pass
+	AudioManager.play_sfx(AudioManager.BUTTONCLICK)
 
 
 func _on_newgame_button_pressed() -> void:
+	AudioManager.play_sfx(AudioManager.BUTTONCLICK)
 	GameManager.new_level()
 
 
 func _on_selectlevel_button_pressed() -> void:
-	pass
+	AudioManager.play_sfx(AudioManager.BUTTONCLICK)
+	get_tree().change_scene_to_file(LEVEL_SELECT_UI)
+
+
+func _on_setting_button_pressed() -> void:
+	AudioManager.play_sfx(AudioManager.BUTTONCLICK)
+	get_tree().change_scene_to_file(SETTINGS_UI)
 
 
 func _on_quit_button_pressed() -> void:
-	pass
+	AudioManager.play_sfx(AudioManager.BUTTONCLICK)
+	get_tree().quit()
 
 
 #func _play_intro() -> void:

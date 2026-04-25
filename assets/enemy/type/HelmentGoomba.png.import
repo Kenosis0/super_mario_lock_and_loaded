@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b220hbijsyufd"
-path="res://.godot/imported/Blocks_Layer 2.png-9c1303f20543bb25cfa2ec1d129d89e5.ctex"
+uid="uid://bs23y47cvk7pj"
+path="res://.godot/imported/HelmentGoomba.png-6f9bc00373de478a54f394c00a4f7f50.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Tiles/Blocks_Layer 2.png"
-dest_files=["res://.godot/imported/Blocks_Layer 2.png-9c1303f20543bb25cfa2ec1d129d89e5.ctex"]
+source_file="res://assets/enemy/type/HelmentGoomba.png"
+dest_files=["res://.godot/imported/HelmentGoomba.png-6f9bc00373de478a54f394c00a4f7f50.ctex"]
 
 [params]
 

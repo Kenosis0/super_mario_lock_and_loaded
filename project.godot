@@ -11,14 +11,19 @@ config_version=5
 [application]
 
 config/name="Super Mario Lock and Loaded"
-run/main_scene="uid://bxyeclsiraagj"
+run/main_scene="uid://duv88jyfexlov"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="res://resources/default_bus_layout.tres"
 
 [autoload]
 
 UtilityScript="*uid://btjoxxso06y2m"
 GameManager="*uid://d14yle6tdnyo0"
+AudioManager="*uid://20weh863b8n0"
 
 [display]
 

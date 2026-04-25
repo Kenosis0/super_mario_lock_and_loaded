@@ -14,6 +14,7 @@ func _on_body_entered(body: Node2D) -> void:
 	# If player is detected, animation collected is played and add score to the player
 	if body is Player:
 		animation_player.play("collected")
+		AudioManager.play_sfx(AudioManager.COINCOLLECTSFX)
 		GameManager.add_score(1)
 
 

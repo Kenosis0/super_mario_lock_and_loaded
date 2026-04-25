@@ -3,7 +3,12 @@
 [ext_resource type="Script" uid="uid://cqjysr4pabu5e" path="res://scripts/gui/level_hud.gd" id="1_vhmfd"]
 [ext_resource type="Script" uid="uid://dwd6s66h0jjvj" path="res://scripts/gui/timer_ui.gd" id="2_l4s1o"]
 [ext_resource type="LabelSettings" uid="uid://ce3ykiirmjowj" path="res://resources/hud_label.tres" id="2_vhmfd"]
+[ext_resource type="Texture2D" uid="uid://bxdlrqmojeuag" path="res://assets/collectibles/Coin.png" id="3_5kl0l"]
 [ext_resource type="Texture2D" uid="uid://0feevt5ex7qt" path="res://assets/MarioSlingShooter/Head.png" id="4_5kl0l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqw6x"]
+atlas = ExtResource("3_5kl0l")
+region = Rect2(6, 13, 148, 148)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqw6x"]
 bg_color = Color(0.47496033, 0.06671614, 0.058315553, 1)
@@ -52,7 +57,8 @@ layout_mode = 2
 text = "Time: "
 label_settings = ExtResource("2_vhmfd")
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=225301072]
+[node name="TimeLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=225301072]
+unique_name_in_owner = true
 layout_mode = 2
 text = "00:00:00"
 label_settings = ExtResource("2_vhmfd")
@@ -65,14 +71,69 @@ layout_mode = 2
 text = "Score: "
 label_settings = ExtResource("2_vhmfd")
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=870816944]
+[node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=870816944]
+unique_name_in_owner = true
 layout_mode = 2
 text = "000367"
 label_settings = ExtResource("2_vhmfd")
 
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1885301995]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=970636113]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer4" unique_id=1126388174]
+modulate = Color(0.7284116, 0.35567012, 0, 1)
+custom_minimum_size = Vector2(55, 55)
+layout_mode = 2
+texture = SubResource("AtlasTexture_bqw6x")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="BronzeCoinCount" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer4" unique_id=302393669]
+layout_mode = 2
+text = "x0"
+label_settings = ExtResource("2_vhmfd")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=333951994]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer3" unique_id=1123225523]
+custom_minimum_size = Vector2(55, 55)
+layout_mode = 2
+texture = SubResource("AtlasTexture_bqw6x")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="SilverCoinCount" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer3" unique_id=752133515]
+layout_mode = 2
+text = "x0"
+label_settings = ExtResource("2_vhmfd")
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer" unique_id=115182275]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer5" unique_id=1077131269]
+modulate = Color(1, 1, 0, 1)
+custom_minimum_size = Vector2(55, 55)
+layout_mode = 2
+texture = SubResource("AtlasTexture_bqw6x")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="GoldCoinCount" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer5" unique_id=1909378507]
+layout_mode = 2
+text = "x0"
+label_settings = ExtResource("2_vhmfd")
+
 [node name="Node" type="Node" parent="." unique_id=100920552 node_paths=PackedStringArray("label_timer")]
 script = ExtResource("2_l4s1o")
-label_timer = NodePath("../MarginContainer/VBoxContainer/HBoxContainer2/Label2")
+label_timer = NodePath("../MarginContainer/VBoxContainer/HBoxContainer2/TimeLabel")
 
 [node name="MarginContainer2" type="MarginContainer" parent="." unique_id=2014794695]
 anchors_preset = 3
@@ -106,10 +167,11 @@ layout_mode = 2
 
 [node name="HealthBar" type="ProgressBar" parent="MarginContainer2/TextureRect/PanelContainer/CenterContainer" unique_id=624602600]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(466.76, 0)
+custom_minimum_size = Vector2(466.76, 23)
 layout_mode = 2
 theme = SubResource("Theme_rx8v8")
 value = 91.9
+show_percentage = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2" unique_id=1344516715]
 layout_mode = 2
@@ -127,7 +189,8 @@ theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="Label" type="Label" parent="MarginContainer3" unique_id=8942812]
+[node name="CurrentLevelLabel" type="Label" parent="MarginContainer3" unique_id=8942812]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Level 2"
 label_settings = ExtResource("2_vhmfd")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://rtw1h4ba6w3m"
+path="res://.godot/imported/deadoompas.mp3-ba0451804bf195e17a804b919db1ff8b.mp3str"
+
+[deps]
+
+source_file="res://assets/SFX Game/deadoompas.mp3"
+dest_files=["res://.godot/imported/deadoompas.mp3-ba0451804bf195e17a804b919db1ff8b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

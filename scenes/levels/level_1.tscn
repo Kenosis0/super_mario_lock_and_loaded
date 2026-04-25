@@ -7,8 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://chbi7gd84lgs7" path="res://assets/Tiles/new/Blocks.png" id="2_trc2a"]
 [ext_resource type="Texture2D" uid="uid://bip0mwvsw5jtg" path="res://assets/Tiles/new/GrassBlock.png" id="3_ej0jc"]
 [ext_resource type="PackedScene" uid="uid://dqo6vvy0pcixm" path="res://scenes/characters/player/player.tscn" id="3_s28nj"]
-[ext_resource type="PackedScene" uid="uid://j8helgs1nrin" path="res://scenes/characters/goomba/goomba.tscn" id="6_ej0jc"]
+[ext_resource type="PackedScene" uid="uid://1ve2o5wfm3uo" path="res://scenes/collectible/coin.tscn" id="5_excbq"]
+[ext_resource type="PackedScene" uid="uid://dln8t6crhknj2" path="res://scenes/characters/goomba/normal_goomba.tscn" id="7_dga24"]
 [ext_resource type="PackedScene" uid="uid://hjkuph3rco1a" path="res://scenes/characters/player/player_camera.tscn" id="7_dj1ns"]
+[ext_resource type="AudioStream" uid="uid://cv64tcjdesmm4" path="res://assets/SFX Game/BGM/Bgmtest2.mp3" id="10_qxy0u"]
 
 [sub_resource type="Resource" id="Resource_dga24"]
 script = ExtResource("2_dga24")
@@ -134,6 +136,100 @@ position = Vector2(-3415.3867, 2267.4575)
 [node name="Pipe6" parent="Environment" unique_id=591039164 instance=ExtResource("2_dj1ns")]
 position = Vector2(-3566.0315, 2464.7634)
 
+[node name="Collectibles" type="Node2D" parent="." unique_id=1090157221]
+
+[node name="Coin" parent="Collectibles" unique_id=1745149304 instance=ExtResource("5_excbq")]
+position = Vector2(-3121.912, 2543.1855)
+scale = Vector2(0.4, 0.4)
+
+[node name="Coin2" parent="Collectibles" unique_id=436327351 instance=ExtResource("5_excbq")]
+position = Vector2(-3004.0146, 2543.1855)
+scale = Vector2(0.4, 0.4)
+
+[node name="Coin3" parent="Collectibles" unique_id=1758771917 instance=ExtResource("5_excbq")]
+position = Vector2(-2883.9739, 2543.1855)
+scale = Vector2(0.4, 0.4)
+
+[node name="Coin4" parent="Collectibles" unique_id=996051980 instance=ExtResource("5_excbq")]
+position = Vector2(-2759.256, 2543.1855)
+scale = Vector2(0.4, 0.4)
+
+[node name="Coin5" parent="Collectibles" unique_id=1690232234 instance=ExtResource("5_excbq")]
+position = Vector2(-2639.215, 2543.1855)
+scale = Vector2(0.4, 0.4)
+
+[node name="Coin6" parent="Collectibles" unique_id=1428390881 instance=ExtResource("5_excbq")]
+position = Vector2(-2519.174, 2543.1855)
+scale = Vector2(0.4, 0.4)
+
+[node name="Coin7" parent="Collectibles" unique_id=1435764712 instance=ExtResource("5_excbq")]
+position = Vector2(-2401.2766, 2543.1855)
+scale = Vector2(0.4, 0.4)
+
+[node name="Coin8" parent="Collectibles" unique_id=287409140 instance=ExtResource("5_excbq")]
+position = Vector2(-2287.6665, 2543.1855)
+scale = Vector2(0.4, 0.4)
+
+[node name="Coin9" parent="Collectibles" unique_id=1482376735 instance=ExtResource("5_excbq")]
+position = Vector2(-2178.3435, 2543.1855)
+scale = Vector2(0.4, 0.4)
+
+[node name="Coin10" parent="Collectibles" unique_id=1976382387 instance=ExtResource("5_excbq")]
+position = Vector2(-2072.9285, 2543.1855)
+scale = Vector2(0.4, 0.4)
+
+[node name="Coin11" parent="Collectibles" unique_id=253700830 instance=ExtResource("5_excbq")]
+position = Vector2(2205.7966, 2174.6729)
+scale = Vector2(0.4, 0.4)
+
+[node name="Coin12" parent="Collectibles" unique_id=950041197 instance=ExtResource("5_excbq")]
+position = Vector2(1241.9921, 2209.564)
+scale = Vector2(0.4, 0.4)
+
+[node name="Coin13" parent="Collectibles" unique_id=150194234 instance=ExtResource("5_excbq")]
+position = Vector2(1335.4016, 2209.564)
+scale = Vector2(0.4, 0.4)
+
+[node name="Coin14" parent="Collectibles" unique_id=891687576 instance=ExtResource("5_excbq")]
+position = Vector2(1419.1482, 2209.564)
+scale = Vector2(0.4, 0.4)
+
+[node name="Coin15" parent="Collectibles" unique_id=838163194 instance=ExtResource("5_excbq")]
+position = Vector2(1509.3369, 2209.564)
+scale = Vector2(0.4, 0.4)
+
+[node name="Coin16" parent="Collectibles" unique_id=1994047075 instance=ExtResource("5_excbq")]
+position = Vector2(2660.025, 2296.9524)
+scale = Vector2(0.4, 0.4)
+
+[node name="Coin17" parent="Collectibles" unique_id=1350327619 instance=ExtResource("5_excbq")]
+position = Vector2(2743.8777, 2296.9524)
+scale = Vector2(0.4, 0.4)
+
+[node name="Coin18" parent="Collectibles" unique_id=1122380811 instance=ExtResource("5_excbq")]
+position = Vector2(2827.7307, 2296.9524)
+scale = Vector2(0.4, 0.4)
+
+[node name="Coin19" parent="Collectibles" unique_id=1368920949 instance=ExtResource("5_excbq")]
+position = Vector2(2910.2527, 2296.9524)
+scale = Vector2(0.4, 0.4)
+
+[node name="Coin20" parent="Collectibles" unique_id=1343565337 instance=ExtResource("5_excbq")]
+position = Vector2(3168.6404, 2296.9524)
+scale = Vector2(0.4, 0.4)
+
+[node name="Coin21" parent="Collectibles" unique_id=1284125236 instance=ExtResource("5_excbq")]
+position = Vector2(3252.4932, 2296.9524)
+scale = Vector2(0.4, 0.4)
+
+[node name="Coin22" parent="Collectibles" unique_id=327621716 instance=ExtResource("5_excbq")]
+position = Vector2(3336.3462, 2296.9524)
+scale = Vector2(0.4, 0.4)
+
+[node name="Coin23" parent="Collectibles" unique_id=947538116 instance=ExtResource("5_excbq")]
+position = Vector2(3418.8682, 2296.9524)
+scale = Vector2(0.4, 0.4)
+
 [node name="TileMap" type="Node2D" parent="." unique_id=1487609962]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="TileMap" unique_id=1386002239]
@@ -142,82 +238,77 @@ tile_set = SubResource("TileSet_mjmac")
 
 [node name="Enemy" type="Node2D" parent="." unique_id=2076668240]
 
-[node name="Goomba" parent="Enemy" unique_id=799814277 instance=ExtResource("6_ej0jc")]
+[node name="NormalGoomba" parent="Enemy" unique_id=799814277 instance=ExtResource("7_dga24")]
 position = Vector2(780.87036, 2599.8943)
 scale = Vector2(0.3, 0.3)
 
-[node name="Goomba2" parent="Enemy" unique_id=1162323990 instance=ExtResource("6_ej0jc")]
+[node name="NormalGoomba2" parent="Enemy" unique_id=1123928080 instance=ExtResource("7_dga24")]
 position = Vector2(915.55457, 2598.1228)
 scale = Vector2(0.3, 0.3)
 
-[node name="Goomba3" parent="Enemy" unique_id=1556083654 instance=ExtResource("6_ej0jc")]
+[node name="NormalGoomba3" parent="Enemy" unique_id=932204223 instance=ExtResource("7_dga24")]
 position = Vector2(1053.7363, 2598.1228)
 scale = Vector2(0.3, 0.3)
 
-[node name="Goomba4" parent="Enemy" unique_id=94525976 instance=ExtResource("6_ej0jc")]
+[node name="NormalGoomba4" parent="Enemy" unique_id=764492126 instance=ExtResource("7_dga24")]
 position = Vector2(1197.2328, 2598.1228)
 scale = Vector2(0.3, 0.3)
 
-[node name="Goomba5" parent="Enemy" unique_id=1368943436 instance=ExtResource("6_ej0jc")]
+[node name="NormalGoomba5" parent="Enemy" unique_id=1983289995 instance=ExtResource("7_dga24")]
 position = Vector2(1344.2723, 2596.3513)
 scale = Vector2(0.3, 0.3)
 
-[node name="Goomba6" parent="Enemy" unique_id=1291323337 instance=ExtResource("6_ej0jc")]
+[node name="NormalGoomba6" parent="Enemy" unique_id=901246962 instance=ExtResource("7_dga24")]
 position = Vector2(-2369.079, 2064.4656)
 scale = Vector2(0.3, 0.3)
 
-[node name="Goomba7" parent="Enemy" unique_id=121265889 instance=ExtResource("6_ej0jc")]
+[node name="NormalGoomba7" parent="Enemy" unique_id=1913813709 instance=ExtResource("7_dga24")]
 position = Vector2(-2132.6855, 2064.4656)
 scale = Vector2(0.3, 0.3)
 
-[node name="Goomba8" parent="Enemy" unique_id=1480378793 instance=ExtResource("6_ej0jc")]
+[node name="NormalGoomba8" parent="Enemy" unique_id=607967510 instance=ExtResource("7_dga24")]
 position = Vector2(-2585.7737, 2300.8596)
 scale = Vector2(0.3, 0.3)
 
-[node name="Goomba9" parent="Enemy" unique_id=1718252166 instance=ExtResource("6_ej0jc")]
+[node name="NormalGoomba9" parent="Enemy" unique_id=290914187 instance=ExtResource("7_dga24")]
 position = Vector2(-2241.0327, 2300.8596)
 scale = Vector2(0.3, 0.3)
 
-[node name="Goomba10" parent="Enemy" unique_id=1892282334 instance=ExtResource("6_ej0jc")]
+[node name="NormalGoomba10" parent="Enemy" unique_id=100630522 instance=ExtResource("7_dga24")]
 position = Vector2(-4242.3203, 2543.5212)
 scale = Vector2(0.3, 0.3)
 
-[node name="Goomba11" parent="Enemy" unique_id=828405531 instance=ExtResource("6_ej0jc")]
+[node name="NormalGoomba11" parent="Enemy" unique_id=1181015916 instance=ExtResource("7_dga24")]
 position = Vector2(-3884.1482, 2534.5671)
 scale = Vector2(0.3, 0.3)
 
-[node name="Goomba12" parent="Enemy" unique_id=536664188 instance=ExtResource("6_ej0jc")]
+[node name="NormalGoomba12" parent="Enemy" unique_id=973698022 instance=ExtResource("7_dga24")]
 position = Vector2(2965.896, 2588.2932)
 scale = Vector2(0.3, 0.3)
 
-[node name="Goomba13" parent="Enemy" unique_id=959117643 instance=ExtResource("6_ej0jc")]
+[node name="NormalGoomba13" parent="Enemy" unique_id=2020474651 instance=ExtResource("7_dga24")]
 position = Vector2(3144.982, 2588.2932)
 scale = Vector2(0.3, 0.3)
 
-[node name="Goomba14" parent="Enemy" unique_id=1554325433 instance=ExtResource("6_ej0jc")]
+[node name="NormalGoomba14" parent="Enemy" unique_id=183779499 instance=ExtResource("7_dga24")]
 position = Vector2(3377.7935, 2588.2932)
 scale = Vector2(0.3, 0.3)
 
-[node name="Goomba15" parent="Enemy" unique_id=1018324931 instance=ExtResource("6_ej0jc")]
+[node name="NormalGoomba15" parent="Enemy" unique_id=1878544026 instance=ExtResource("7_dga24")]
 position = Vector2(3735.9658, 2588.2932)
 scale = Vector2(0.3, 0.3)
 
-[node name="Goomba16" parent="Enemy" unique_id=1431272019 instance=ExtResource("6_ej0jc")]
+[node name="NormalGoomba16" parent="Enemy" unique_id=1206210919 instance=ExtResource("7_dga24")]
 position = Vector2(4810.4824, 2561.4304)
 scale = Vector2(0.3, 0.3)
 
-[node name="Goomba17" parent="Enemy" unique_id=1464243782 instance=ExtResource("6_ej0jc")]
+[node name="NormalGoomba17" parent="Enemy" unique_id=1621357298 instance=ExtResource("7_dga24")]
 position = Vector2(5114.929, 2552.4758)
 scale = Vector2(0.3, 0.3)
 
-[node name="Goomba18" parent="Enemy" unique_id=1523362973 instance=ExtResource("6_ej0jc")]
+[node name="NormalGoomba18" parent="Enemy" unique_id=1561837279 instance=ExtResource("7_dga24")]
 position = Vector2(3270.3418, 2194.304)
 scale = Vector2(0.3, 0.3)
-gravity_weight = 1500.0
-speed = 15.0
-chase_speed = 60.0
-knockback_force = 135.0
-knockback_decay = 420.0
 
 [node name="Player" parent="." unique_id=1182183939 instance=ExtResource("3_s28nj")]
 position = Vector2(-792.649, 2532.0823)
@@ -235,3 +326,8 @@ knockback_decay = 660.0
 [node name="Camera2D" parent="." unique_id=1878465010 node_paths=PackedStringArray("player") instance=ExtResource("7_dj1ns")]
 position = Vector2(-771.52313, 2533.635)
 player = NodePath("../Player")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1208713790]
+stream = ExtResource("10_qxy0u")
+pitch_scale = 0.6
+bus = &"BGM"

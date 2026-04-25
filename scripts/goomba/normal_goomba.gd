@@ -1,0 +1,2 @@
+extends Goomba
+class_name NormalGoomba

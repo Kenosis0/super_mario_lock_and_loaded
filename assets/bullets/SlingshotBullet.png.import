@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0eovv0hrript"
-path="res://.godot/imported/g408.png-74c4c617b6dfaea8557928f752f0ef87.ctex"
+uid="uid://cc7vitim6vt5c"
+path="res://.godot/imported/SlingshotBullet.png-ef0d4f69982f7934d177a69811fdefdb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Tiles/g408.png"
-dest_files=["res://.godot/imported/g408.png-74c4c617b6dfaea8557928f752f0ef87.ctex"]
+source_file="res://assets/bullets/SlingshotBullet.png"
+dest_files=["res://.godot/imported/SlingshotBullet.png-ef0d4f69982f7934d177a69811fdefdb.ctex"]
 
 [params]
 

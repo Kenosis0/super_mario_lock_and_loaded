@@ -317,6 +317,7 @@ _data = {
 }
 
 [node name="Coin" type="Area2D" unique_id=1745149304]
+modulate = Color(1, 1, 0, 1)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_bbmrj")

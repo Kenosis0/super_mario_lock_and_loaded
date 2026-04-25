@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cmp2g5d0jrsxi"
+path="res://.godot/imported/slingshot.mp3-41f02739b3213961555c2ecb4bd9d6e2.mp3str"
+
+[deps]
+
+source_file="res://assets/SFX Game/slingshot.mp3"
+dest_files=["res://.godot/imported/slingshot.mp3-41f02739b3213961555c2ecb4bd9d6e2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
