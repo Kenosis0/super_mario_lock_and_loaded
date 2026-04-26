@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://rklc4ekfkqm"]
+
+[ext_resource type="Shader" uid="uid://dmw1mv8mkj8nq" path="res://resources/crt_filter.gdshader" id="1_k8f3s"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dnkej"]
+shader = ExtResource("1_k8f3s")
+shader_parameter/crt_curve = 0.169
+shader_parameter/scanline_intensity = 0.1200000057
+shader_parameter/aperture_grille_rate = 0.4
+shader_parameter/white_noise_rate = 0.2
+
+[node name="CRTFILTER" type="CanvasLayer" unique_id=1627699941]
+layer = 10
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1627230638]
+material = SubResource("ShaderMaterial_dnkej")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

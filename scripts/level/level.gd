@@ -26,6 +26,8 @@ func _ready() -> void:
 	var hud: LevelHud = GameManager.LEVEL_HUD.instantiate()
 	add_child(hud)
 	var player: Player = get_node_or_null("Player") as Player
+	if player:
+		GameManager.apply_pending_resume_player_position(player)
 	hud.setup(level_data, player)
 	
 	if player and not player.died.is_connected(_on_player_died):

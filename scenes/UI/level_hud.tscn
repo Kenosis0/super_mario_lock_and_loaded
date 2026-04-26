@@ -94,6 +94,7 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="BronzeCoinCount" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer4" unique_id=302393669]
+unique_name_in_owner = true
 layout_mode = 2
 text = "x0"
 label_settings = ExtResource("2_vhmfd")
@@ -110,6 +111,7 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="SilverCoinCount" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer3" unique_id=752133515]
+unique_name_in_owner = true
 layout_mode = 2
 text = "x0"
 label_settings = ExtResource("2_vhmfd")
@@ -127,6 +129,7 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="GoldCoinCount" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer5" unique_id=1909378507]
+unique_name_in_owner = true
 layout_mode = 2
 text = "x0"
 label_settings = ExtResource("2_vhmfd")

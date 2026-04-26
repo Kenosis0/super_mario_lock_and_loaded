@@ -6,6 +6,7 @@ const SETTINGS_UI := "res://scenes/UI/settings.tscn"
 @onready var title: Label = %Title
 @onready var content: VBoxContainer = %Content
 @onready var buttons: VBoxContainer = %Buttons
+@onready var continue_button: Button = $Content/MarginContainer/Buttons/ContinueButton
 
 var _title_base_y: float
 
@@ -15,17 +16,8 @@ func _ready() -> void:
 		if button is Button:
 			if not button.is_connected("pressed", Callable(self, "_on_menu_button_pressed").bind(button.text.to_lower())):
 				button.connect("pressed", Callable(self, "_on_menu_button_pressed").bind(button.text.to_lower()))
-			
-			if button.text.to_lower() == "continue":
-				print(GameManager.level_datas)
-				for data in GameManager.level_datas:
-					
-					if data.level_started == true:
-						print(data.level_started)
-						button.show()
-						break
-					else:
-						button.hide()
+
+	continue_button.visible = GameManager.has_continue_data()
 
 func _on_menu_button_pressed(button_name: String) -> void:
 	match button_name:
@@ -43,6 +35,7 @@ func _on_menu_button_pressed(button_name: String) -> void:
 
 func _on_continue_button_pressed() -> void:
 	AudioManager.play_sfx(AudioManager.BUTTONCLICK)
+	GameManager.continue_game()
 
 
 func _on_newgame_button_pressed() -> void:

@@ -104,6 +104,7 @@ func apply_knockback(from_global_pos: Vector2, amount: float = -1.0) -> void:
 
 
 func die() -> void:
+	AudioManager.play_sfx(AudioManager.DEADOOMPAS)
 	var score: ScorePop = SCORE_POP.instantiate()
 	score.score = score_collected
 	GameManager.add_score(score_collected)

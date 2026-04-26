@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dln8t6crhknj2" path="res://scenes/characters/goomba/normal_goomba.tscn" id="7_1yj8c"]
 [ext_resource type="PackedScene" uid="uid://dqo6vvy0pcixm" path="res://scenes/characters/player/player.tscn" id="8_ndlae"]
 [ext_resource type="PackedScene" uid="uid://ds4mcqifeljga" path="res://scenes/characters/goomba/helmet_goomba.tscn" id="8_qsp8v"]
+[ext_resource type="PackedScene" uid="uid://1ve2o5wfm3uo" path="res://scenes/collectible/coin.tscn" id="9_nt80m"]
 [ext_resource type="PackedScene" uid="uid://hjkuph3rco1a" path="res://scenes/characters/player/player_camera.tscn" id="9_v8d84"]
 
 [sub_resource type="Resource" id="Resource_qsp8v"]
@@ -216,6 +217,168 @@ position = Vector2(5050.089, 2549.8042)
 
 [node name="HelmetGoomba3" parent="Enemy" unique_id=991955252 instance=ExtResource("8_qsp8v")]
 position = Vector2(2392.725, 2543.0767)
+
+[node name="Collectibles" type="Node2D" parent="." unique_id=667668780]
+
+[node name="Coin" parent="Collectibles" unique_id=1745149304 instance=ExtResource("9_nt80m")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(-5050.6533, 2573.5618)
+scale = Vector2(0.4, 0.4)
+coin_type = "Gold"
+
+[node name="Coin2" parent="Collectibles" unique_id=2106104206 instance=ExtResource("9_nt80m")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(-5050.6533, 2498.1074)
+scale = Vector2(0.4, 0.4)
+coin_type = "Gold"
+
+[node name="Coin3" parent="Collectibles" unique_id=452947350 instance=ExtResource("9_nt80m")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(-5050.6533, 2413.2212)
+scale = Vector2(0.4, 0.4)
+coin_type = "Gold"
+
+[node name="Coin4" parent="Collectibles" unique_id=541337735 instance=ExtResource("9_nt80m")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(-5050.6533, 2330.6929)
+scale = Vector2(0.4, 0.4)
+coin_type = "Gold"
+
+[node name="Coin5" parent="Collectibles" unique_id=737935439 instance=ExtResource("9_nt80m")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(-5050.6533, 2250.5227)
+scale = Vector2(0.4, 0.4)
+coin_type = "Gold"
+
+[node name="Coin6" parent="Collectibles" unique_id=1522084218 instance=ExtResource("9_nt80m")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(-4383.997, 2190.5022)
+scale = Vector2(0.4, 0.4)
+coin_type = "Silver"
+
+[node name="Coin7" parent="Collectibles" unique_id=1429748999 instance=ExtResource("9_nt80m")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(-4259.4976, 2190.5022)
+scale = Vector2(0.4, 0.4)
+coin_type = "Silver"
+
+[node name="Coin8" parent="Collectibles" unique_id=1090920555 instance=ExtResource("9_nt80m")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(-4321.7476, 2102.315)
+scale = Vector2(0.4, 0.4)
+coin_type = "Silver"
+
+[node name="Coin9" parent="Collectibles" unique_id=665524972 instance=ExtResource("9_nt80m")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(-2881.4414, 1990.7839)
+scale = Vector2(0.4, 0.4)
+coin_type = "Silver"
+
+[node name="Coin10" parent="Collectibles" unique_id=1550315351 instance=ExtResource("9_nt80m")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(-2756.942, 1990.7839)
+scale = Vector2(0.4, 0.4)
+coin_type = "Silver"
+
+[node name="Coin11" parent="Collectibles" unique_id=339631460 instance=ExtResource("9_nt80m")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(-2819.192, 1902.5967)
+scale = Vector2(0.4, 0.4)
+coin_type = "Silver"
+
+[node name="Coin12" parent="Collectibles" unique_id=1143095704 instance=ExtResource("9_nt80m")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(445.96695, 2103.7676)
+scale = Vector2(0.4, 0.4)
+coin_type = "Gold"
+
+[node name="Coin13" parent="Collectibles" unique_id=1773847563 instance=ExtResource("9_nt80m")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(570.46643, 2103.7676)
+scale = Vector2(0.4, 0.4)
+coin_type = "Gold"
+
+[node name="Coin14" parent="Collectibles" unique_id=1359722364 instance=ExtResource("9_nt80m")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(508.21646, 2015.5803)
+scale = Vector2(0.4, 0.4)
+coin_type = "Gold"
+
+[node name="Coin23" parent="Collectibles" unique_id=1108149694 instance=ExtResource("9_nt80m")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(5227.2554, 2564.3362)
+scale = Vector2(0.4, 0.4)
+coin_type = "Gold"
+
+[node name="Coin24" parent="Collectibles" unique_id=1973462778 instance=ExtResource("9_nt80m")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(5351.755, 2564.3362)
+scale = Vector2(0.4, 0.4)
+coin_type = "Gold"
+
+[node name="Coin25" parent="Collectibles" unique_id=390954395 instance=ExtResource("9_nt80m")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(5289.505, 2476.149)
+scale = Vector2(0.4, 0.4)
+coin_type = "Gold"
+
+[node name="Coin26" parent="Collectibles" unique_id=451455587 instance=ExtResource("9_nt80m")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(5224.4023, 2378.8835)
+scale = Vector2(0.4, 0.4)
+coin_type = "Gold"
+
+[node name="Coin27" parent="Collectibles" unique_id=1918253206 instance=ExtResource("9_nt80m")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(5348.902, 2378.8835)
+scale = Vector2(0.4, 0.4)
+coin_type = "Gold"
+
+[node name="Coin28" parent="Collectibles" unique_id=1399805530 instance=ExtResource("9_nt80m")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(5286.652, 2290.6963)
+scale = Vector2(0.4, 0.4)
+coin_type = "Gold"
+
+[node name="Coin15" parent="Collectibles" unique_id=914162948 instance=ExtResource("9_nt80m")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(-1012.30237, 2111.657)
+scale = Vector2(0.4, 0.4)
+
+[node name="Coin16" parent="Collectibles" unique_id=1993070209 instance=ExtResource("9_nt80m")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(-799.64246, 2111.657)
+scale = Vector2(0.4, 0.4)
+
+[node name="Coin17" parent="Collectibles" unique_id=1638782038 instance=ExtResource("9_nt80m")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(-321.15762, 2111.657)
+scale = Vector2(0.4, 0.4)
+
+[node name="Coin18" parent="Collectibles" unique_id=967189470 instance=ExtResource("9_nt80m")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(-66.72514, 2111.657)
+scale = Vector2(0.4, 0.4)
+
+[node name="Coin19" parent="Collectibles" unique_id=1574567426 instance=ExtResource("9_nt80m")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(1124.3606, 2111.657)
+scale = Vector2(0.4, 0.4)
+
+[node name="Coin20" parent="Collectibles" unique_id=951770785 instance=ExtResource("9_nt80m")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(1337.0205, 2111.657)
+scale = Vector2(0.4, 0.4)
+
+[node name="Coin21" parent="Collectibles" unique_id=1032443259 instance=ExtResource("9_nt80m")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(1815.5054, 2111.657)
+scale = Vector2(0.4, 0.4)
+
+[node name="Coin22" parent="Collectibles" unique_id=600607436 instance=ExtResource("9_nt80m")]
+modulate = Color(1, 1, 1, 1)
+position = Vector2(2069.9377, 2111.657)
+scale = Vector2(0.4, 0.4)
 
 [node name="Player" parent="." unique_id=1182183939 instance=ExtResource("8_ndlae")]
 position = Vector2(-792.649, 2532.0823)

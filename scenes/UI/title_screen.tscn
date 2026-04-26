@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://ct7j2vwdfhimu"]
+
+[ext_resource type="Texture2D" uid="uid://d2vjk46c4vvth" path="res://assets/background/TitleScreenBackground.jpg" id="2_82207"]
+[ext_resource type="FontFile" uid="uid://x6manew3u23n" path="res://assets/fonts/Melon Pop.ttf" id="3_rvnbb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font = ExtResource("3_rvnbb")
+font_size = 100
+font_color = Color(1, 0.88, 0.1, 1)
+outline_size = 10
+outline_color = Color(0.6, 0.1, 0, 1)
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 0.6)
+shadow_offset = Vector2(5, 6)
+
+[node name="TitleScreen" type="Control" unique_id=2036902278]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="." unique_id=967818088]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_82207")
+stretch_mode = 5
+
+[node name="Title" type="Label" parent="." unique_id=1131682974]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -113.5
+offset_right = 450.0
+offset_bottom = 113.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Super Mario:
+Lock and Loaded"
+label_settings = SubResource("LabelSettings_title")
+horizontal_alignment = 1
+
+[node name="FadeRect" type="ColorRect" parent="." unique_id=1311759593]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

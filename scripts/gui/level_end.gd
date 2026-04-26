@@ -33,7 +33,7 @@ func _refresh() -> void:
 
 	result_label.text = "YOU WIN" if result.won else "YOU LOSE"
 	level_label.text = "Level %d" % result.level_id
-	score_label.text = "Score: %d" % result.total_score
+	score_label.text = "Total Score: %d" % result.total_score
 	objective_label.text = "Objective: %d" % result.score_objective
 	bonus_label.text = "Time Bonus: %d / %d" % [result.time_bonus, result.max_time_bonus]
 	max_score_label.text = "Max Score: %d" % result.max_score

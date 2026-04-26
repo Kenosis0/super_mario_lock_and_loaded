@@ -68,7 +68,7 @@ theme_override_constants/separation = 24
 [node name="ScoreLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1577722321]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Score: 0"
+text = "Total Score: 0"
 label_settings = ExtResource("2_ukcxl")
 
 [node name="ObjectiveLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=964890629]

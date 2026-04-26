@@ -94,6 +94,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 			
 			await tween_slingshot.finished
 			
+			AudioManager.play_sfx(AudioManager.SLINGSHOT)
 			fire(power, self)
 			handr_distance_ratio = 1.0
 			print("fired")
