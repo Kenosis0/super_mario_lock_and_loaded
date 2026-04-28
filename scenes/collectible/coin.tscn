@@ -1,12 +1,17 @@
 [gd_scene format=3 uid="uid://1ve2o5wfm3uo"]
 
 [ext_resource type="Script" uid="uid://dlcstproe1ps8" path="res://scripts/collectibles/coin.gd" id="1_bbmrj"]
+<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://bxdlrqmojeuag" path="res://assets/collectibles/Coin.png" id="3_1ucd8"]
+=======
+[ext_resource type="Texture2D" uid="uid://bxdlrqmojeuag" path="res://assets/collectibles/Coin.png" id="4_a3dco"]
+>>>>>>> Stashed changes
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bbmrj"]
 radius = 74.14581
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ucd8"]
+<<<<<<< Updated upstream
 atlas = ExtResource("3_1ucd8")
 region = Rect2(0, 0, 160, 176)
 
@@ -44,46 +49,85 @@ region = Rect2(1280, 0, 160, 176)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_54g8f"]
 atlas = ExtResource("3_1ucd8")
+=======
+atlas = ExtResource("4_a3dco")
+region = Rect2(0, 0, 160, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3dco"]
+atlas = ExtResource("4_a3dco")
+region = Rect2(160, 0, 160, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ij7bh"]
+atlas = ExtResource("4_a3dco")
+region = Rect2(320, 0, 160, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_no8ln"]
+atlas = ExtResource("4_a3dco")
+region = Rect2(480, 0, 160, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qial"]
+atlas = ExtResource("4_a3dco")
+region = Rect2(640, 0, 160, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxmgl"]
+atlas = ExtResource("4_a3dco")
+region = Rect2(800, 0, 160, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01fcc"]
+atlas = ExtResource("4_a3dco")
+region = Rect2(960, 0, 160, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6lj7"]
+atlas = ExtResource("4_a3dco")
+region = Rect2(1120, 0, 160, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxl27"]
+atlas = ExtResource("4_a3dco")
+region = Rect2(1280, 0, 160, 176)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_54g8f"]
+atlas = ExtResource("4_a3dco")
+>>>>>>> Stashed changes
 region = Rect2(1440, 0, 160, 176)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dwq3h"]
-atlas = ExtResource("3_1ucd8")
+atlas = ExtResource("4_a3dco")
 region = Rect2(0, 0, 102, 1024)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jtvqw"]
-atlas = ExtResource("3_1ucd8")
+atlas = ExtResource("4_a3dco")
 region = Rect2(102, 0, 102, 1024)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0c6q1"]
-atlas = ExtResource("3_1ucd8")
+atlas = ExtResource("4_a3dco")
 region = Rect2(204, 0, 102, 1024)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dxi62"]
-atlas = ExtResource("3_1ucd8")
+atlas = ExtResource("4_a3dco")
 region = Rect2(306, 0, 102, 1024)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5e8dk"]
-atlas = ExtResource("3_1ucd8")
+atlas = ExtResource("4_a3dco")
 region = Rect2(408, 0, 102, 1024)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4lwlf"]
-atlas = ExtResource("3_1ucd8")
+atlas = ExtResource("4_a3dco")
 region = Rect2(510, 0, 102, 1024)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rrku0"]
-atlas = ExtResource("3_1ucd8")
+atlas = ExtResource("4_a3dco")
 region = Rect2(612, 0, 102, 1024)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6xlqw"]
-atlas = ExtResource("3_1ucd8")
+atlas = ExtResource("4_a3dco")
 region = Rect2(714, 0, 102, 1024)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_khyub"]
-atlas = ExtResource("3_1ucd8")
+atlas = ExtResource("4_a3dco")
 region = Rect2(816, 0, 102, 1024)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7hber"]
-atlas = ExtResource("3_1ucd8")
+atlas = ExtResource("4_a3dco")
 region = Rect2(918, 0, 102, 1024)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bbmrj"]
