@@ -6,6 +6,7 @@ const COINCOLLECTSFX = preload("uid://8vecfu0w3ac0")
 const DEADOOMPAS = preload("uid://rtw1h4ba6w3m")
 const JUMPV_1 = preload("uid://giyb1xory4ig")
 const SLINGSHOT = preload("uid://cmp2g5d0jrsxi")
+const MENU_MUSICBGMTEST_2 = preload("uid://1f33ai6ksde0")
 
 const SETTINGS_PATH := "user://settings.cfg"
 const SETTINGS_SECTION_AUDIO := "audio"

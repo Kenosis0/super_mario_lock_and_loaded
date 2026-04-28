@@ -12,6 +12,7 @@ var _title_base_y: float
 
 
 func _ready() -> void:
+	AudioManager.play_bgm(AudioManager.MENU_MUSICBGMTEST_2)
 	for button in buttons.get_children():
 		if button is Button:
 			if not button.is_connected("pressed", Callable(self, "_on_menu_button_pressed").bind(button.text.to_lower())):

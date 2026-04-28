@@ -9,7 +9,7 @@ const COIN_TYPE_BRONZE := "Bronze"
 const COIN_TYPE_SILVER := "Silver"
 const COIN_TYPE_GOLD := "Gold"
 
-const BRONZE_COIN_POINTS := 10
+const BRONZE_COIN_POINTS := 50
 const SILVER_COIN_POINTS := 100
 const GOLD_COIN_POINTS := 500
 
